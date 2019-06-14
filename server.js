@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const port = process.env.PORT || 3001;
 
-const nps = "developer.nps.gov/api/v1";
+const nps = "https://developer.nps.gov/api/v1";
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
@@ -19,11 +19,13 @@ app.get('/express_backend', (req, res) => {
 
 app.get('/api/state', (req, res) => {
 
-    axios.get(nps + "/campgrounds", { params: { stateCode: req.query.id, api_key: process.env.API_KEY } })
+    axios.get(nps + "/campgrounds", { params: { stateCode: req.query.statecode, parkCode: req.query.parkcode, api_key: process.env.API_KEY } })
         .then(function (response) {
             // handle success
-            console.log(response);
-            res.send(response.data);
+            //console.log(response.data);
+            data = response.data;
+            res.send(data);
+
         })
         .catch(function (error) {
             // handle error
@@ -33,4 +35,67 @@ app.get('/api/state', (req, res) => {
             // always executed
         });
 
-})
+});
+
+app.get('/api/alerts', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/articles', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/events', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/lessonplans', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/newsreleases', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/parks', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/people', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/places', (req, res) => {
+
+
+
+
+});
+
+app.get('/api/visitorcenters', (req, res) => {
+
+
+
+
+});
