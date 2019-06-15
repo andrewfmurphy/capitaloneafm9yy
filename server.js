@@ -30,14 +30,26 @@ app.get('/api/state', (req, res) => {
         .catch(function (error) {
             // handle error
             console.log(error);
-        })
-        .finally(function () {
-            // always executed
+            res.send(error);
         });
 
 });
 
 app.get('/api/alerts', (req, res) => {
+    axios.get(nps + "/alerts", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
+    .then(function (response) {
+        // handle success
+        //console.log(response.data);
+        //console.log("parkcode is" + req.query.stateCode);
+        data = response.data;
+        res.send(response.data);
+
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    });
+
 
 
 
@@ -73,6 +85,19 @@ app.get('/api/newsreleases', (req, res) => {
 });
 
 app.get('/api/parks', (req, res) => {
+    axios.get(nps + "/parks", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
+
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 
 
 
