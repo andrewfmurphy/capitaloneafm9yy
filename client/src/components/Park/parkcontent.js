@@ -6,9 +6,12 @@ class ParkContent extends Component {
     }
     render() {
       return (
-          <div className="ParkTitle">
+          <div className="ParkContent">
+          <h2>Description</h2>
           <div>{this.props.description}</div>
+          <h2>Directions</h2>
           <div>{this.props.directions}</div>
+          <h2>Weather</h2>
           <div>{this.props.weather}</div>
           </div>
       );
