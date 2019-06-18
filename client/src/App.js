@@ -14,14 +14,14 @@ class App extends Component {
     render() {
       return (
         <Router>
-          <header className="App-header">
-          </header>
           
+               
           <div className="App">
           <Route exact path="/" component={Main} />
           <Route path="/park/:code" component={Park} />
           <Route path="/search" component={Lister} />
           </div>
+          
         </Router>
         
       );

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './main.css';
+import styles from './main.module.css';
 import Panel from '../Park/panel.js';
 import Typed from 'typed.js';
+import Container from 'react-bootstrap/Container';
 
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import SearchForm from './searchform.js';
+import SearchForm2 from './searchform2.js'
 
 
 const axios = require('axios');
@@ -46,20 +47,18 @@ class Main extends Component {
 
     render() {
         return (
-            <div className="main">
+            <div className={styles.main}>
 
-
-                <Jumbotron>
-                    <div className="typing" align="center">
+                <Container className={styles.maincontainer}>
+                    <div className={styles.typing} align="center">
                         EXPLORE <span
                             style={{ whiteSpace: 'pre' }}
                             ref={(el) => { this.el = el; }}
                         />
                     </div>
+                </Container>
 
-                </Jumbotron>
-
-                    <SearchForm />
+                <SearchForm2 className={styles.searchform}/>
 
             </div>
 

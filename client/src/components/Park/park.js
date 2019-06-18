@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './park.css';
+import styles from './park.module.css';
 import ParkTitle from './parktitle.js';
 import Alerts from './alerts.js';
 import Campgrounds from './campgrounds.js';
@@ -52,7 +52,7 @@ class Park extends Component {
       .catch(err => console.log(err));
   }
   callParkInfo = () => {
-    return axios.get("/api/parks", { params: { parkCode: this.props.match.params.code, api_key: process.env.API_KEY, fields: "entranceFees,entrancePasses,operatingHours,contacts,addresses" } })
+    return axios.get("/api/parks", { params: { parkCode: this.props.match.params.code, api_key: process.env.API_KEY, fields: "images,entranceFees,entrancePasses,operatingHours,contacts,addresses,latLong" } })
       .then(function (response) {
         // handle success
         //console.log(response.data.data);
@@ -175,9 +175,9 @@ class Park extends Component {
       return (<div className="Park">Loading</div>)
     } else {
       return (
-        <div className="Park">
-          <Container>
-            <ParkTitle name={this.state.park.name} designation={this.state.park.designation} state={this.state.park.states} />
+        <div className={styles.park}>
+          <Container className={styles.parkcontainer}>
+            <ParkTitle name={this.state.park.name} designation={this.state.park.designation} state={this.state.park.states} latlong={this.state.park.latLong}/>
             <Panel path={this.props.match.url}></Panel>
             <Switch>
               <Route

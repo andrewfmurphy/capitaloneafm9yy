@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//import './parktitle.css';
+import styles from './parktitle.module.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -12,23 +12,30 @@ class ParkTitle extends Component {
     render() {
         return (
 
-            <div className="ParkTitle">
+            <div className={styles.parktitle}>
                 <Row>
                     <Col>
-                        <div className="name">{this.props.name}</div>
-
+                        <div className={styles.name}>{this.props.name}</div>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <h4>{this.props.designation}</h4>
+                        <div className={styles.designator}>{this.props.designation}</div>
+                    </Col>
+                    <Col xs={4}>
+                    <div className={styles.latlong}>{this.props.latlong.substring(4,15)}&#176;N</div>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <h4>{this.props.state}</h4>
+                    <div className={styles.designator}>{this.props.state.replace(/[,]/g, ", ")}</div>
+                    
+                    </Col>
+                    <Col xs={4}>
+                    <div className={styles.latlong}>{this.props.latlong.substring(23, 34)}&#176;W</div>
                     </Col>
                 </Row>
+                <hr className={styles.divider}></hr>
             </div>
 
         );

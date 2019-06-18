@@ -10,6 +10,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
+
+
+
 class SearchForm extends Component {
     constructor(props) {
         super(props);
@@ -61,8 +64,8 @@ class SearchForm extends Component {
             return (
                 <Container>
                     
-                    <Grid container spacing={3} justify="center" alignItems="center">
-                        <Grid item xs={12}>
+                    <Grid container justify="center" spacing={3}  alignItems="center">
+                        {/* <Grid item xs={12} > */}
                                 <Select
                                 onChange={this.handleChange}
                                 inputProps={{
@@ -194,8 +197,8 @@ class SearchForm extends Component {
                                 Primary
                                     </Button>
 
-                        </Grid>
-                        <Grid item xs={6} justify="center">
+                        {/* </Grid> */}
+                        {/* <Grid item xs={6} justify="center">
                             <FormGroup>
                                 {['National Park', 'National Monument', 'National Preserve', 'National Historic Site',
                                     'National Historic Park', 'National Memorial', 'National Battlefield'].map(name => (
@@ -223,7 +226,7 @@ class SearchForm extends Component {
                                             />} label={`${name}`}
                                         />))}
                             </FormGroup>
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </Container>
 

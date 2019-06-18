@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 
+import styles from './pricinghours.module.css'
 class PricingHours extends Component {
     constructor(props) {
         super(props);
@@ -16,24 +17,22 @@ class PricingHours extends Component {
 
                 <Tab.Container defaultActiveKey="prices">
                     <Row>
-                        <Nav variant="pills">
-                            <Nav.Item>
-                                <Nav.Link eventKey="prices">Fees</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="hours">Hours</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
+ 
+                                <Nav.Link className={styles.header} eventKey="prices">Fees</Nav.Link>
+
+
+                                <Nav.Link className={styles.header} eventKey="hours">Hours</Nav.Link>
+
                     </Row>
                     <Row>
 
                         <Tab.Content>
                             <Tab.Pane eventKey="prices">
-                                {this.props.fees.map(item => <Row className="fee"><Col md={3} className="price">
-                                    {"$" + parseFloat(item.cost)}</Col> <Col className="description"><span className="descriptionspan">{item.title}</span></Col> </Row>)}
-                                {this.props.passes.length > 0 && <div className="header">Passes</div>}
-                                {this.props.passes.map(item => <Row className="pass"><Col md={3} className="price">
-                                    {"$" + parseFloat(item.cost)}</Col> <Col className="description"><span className="descriptionspan">{item.title}</span></Col> </Row>)}                            </Tab.Pane>
+                                {this.props.fees.map(item => <Row className={styles.fee}><Col md={3} className={styles.price}>
+                                    {"$" + parseFloat(item.cost)}</Col> <Col className="description"><span className={styles.descriptionspan}>{item.title}</span></Col> </Row>)}
+                                {this.props.passes.length > 0 && <div className={styles.passheader}>Passes</div>}
+                                {this.props.passes.map(item => <Row className={styles.pass}><Col md={3} className={styles.price}>
+                                    {"$" + parseFloat(item.cost)}</Col> <Col className="description"><span className={styles.descriptionspan}>{item.title}</span></Col> </Row>)}                            </Tab.Pane>
                             <Tab.Pane eventKey="hours">
                                 {this.props.hours.map(item => <div className="hours"><span className="title">{item.name}</span> <div className="day">Monday:
                                  <span className="dayspan">{item.standardHours.monday}</span></div>
@@ -43,7 +42,7 @@ class PricingHours extends Component {
                                     <div className="day">Friday: <span className="dayspan">{item.standardHours.friday}</span></div>
                                     <div className="day">Saturday: <span className="dayspan">{item.standardHours.saturday}</span></div>
                                     <div className="day">Sunday: <span className="dayspan">{item.standardHours.sunday}</span></div>
-                                    <span className="descriptionspan">{item.description} </span> </div>)}
+                                    <span className={styles.descriptionspan}>{item.description} </span> </div>)}
                             </Tab.Pane>
                         </Tab.Content>
 
