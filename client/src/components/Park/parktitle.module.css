@@ -1,0 +1,26 @@
+.parktitle {
+
+}
+
+.name {
+    font-family: 'Gothic A1';
+    font-weight: 800;
+    font-size: 48px;
+    color: #0C1713;
+    text-transform: uppercase;
+    
+}
+
+.designator {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.divider {
+    margin-bottom: 5px;
+}
+
+.latlong {
+    text-align: right;
+}

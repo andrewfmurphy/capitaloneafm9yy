@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700|Roboto:400,900&display=swap');
+
+.main {
+    color: #222222;
+    background-color: #fdfdfd;
+}
+.typing {
+    font-family: "Roboto";
+    font-weight: 900;
+    font-size: 4em;
+    text-transform: uppercase;
+    padding-top: 200px;
+    padding-bottom: 40px;
+    
+}

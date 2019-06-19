@@ -18,12 +18,11 @@ class Panel extends Component {
     render() {
         return (
             <div className={styles.panel}>
-                <Container>
-                    <Navbar expand="lg">
-
+                    <Navbar expand="false">
+                        <Navbar.Brand href="#home"></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto">
+                        <Navbar.Collapse id="basic-navbar-nav" className="text-right">
+                            <Nav className={styles.menu}>
                                 <Nav className={styles.menuitem}><Link to={this.props.path}>Main</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/alerts"}>Alerts</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/campgrounds"}>Campgrounds</Link></Nav>
@@ -40,7 +39,6 @@ class Panel extends Component {
                         </Navbar.Collapse>
 
                     </Navbar>
-                </Container>
             </div>
         );
     }

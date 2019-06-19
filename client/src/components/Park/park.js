@@ -8,6 +8,7 @@ import Educational from './educational.js';
 import Panel from './panel.js';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import ParkMain from './parkmain.js';
+import GeneralInfo from './generalinfo.js';
 
 
 import Container from 'react-bootstrap/Container';
@@ -177,7 +178,7 @@ class Park extends Component {
       return (
         <div className={styles.park}>
           <Container className={styles.parkcontainer}>
-            <ParkTitle name={this.state.park.name} designation={this.state.park.designation} state={this.state.park.states} latlong={this.state.park.latLong}/>
+            <ParkTitle name={this.state.park.name} designation={this.state.park.designation} state={this.state.park.states} latlong={this.state.park.latLong} />
             <Panel path={this.props.match.url}></Panel>
             <Switch>
               <Route
@@ -197,6 +198,10 @@ class Park extends Component {
               <Route
                 path="/park/:code/educational"
                 render={() => <Educational educational={this.state.educational} />} />
+              <Route
+                path="/park/:code/generalinfo"
+                render={() => <GeneralInfo park={this.state.park} address={this.state.park.addresses.find((address) => {
+                  return address.type=="Physical";})} contacts={this.state.park.contacts}/>} />
             </Switch>
           </Container>
         </div>

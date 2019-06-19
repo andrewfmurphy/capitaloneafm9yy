@@ -1,0 +1,38 @@
+.parkcontent {
+    font-size: 16px;
+}
+
+.header {
+    font-size: 36px;
+}
+
+.image {
+    -webkit-filter: grayscale(20%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(20%);
+}
+
+.description {
+    margin-bottom: 40px;
+    padding-left: 15px;
+    margin-left: -15px;
+    border-left: 2px solid black;
+
+}
+
+.row1{
+    margin-top: 20px;
+}
+
+.icon {
+    border: none;
+}
+
+.iconcaption {
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
