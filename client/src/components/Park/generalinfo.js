@@ -13,17 +13,12 @@ class GeneralInfo extends Component {
         return (
             <Container>
                 <Row>
-                    <Col>
-                        <div className={styles.title}>General Info</div>
-                    </Col>
-                </Row>
-                <Row>
                     <Col xs={9}>
-                        <div><div>{this.props.address.line1}</div> <div>{this.props.address.line2}</div><div>{this.props.address.line3}</div>
+                        {/* <div><div>{this.props.address.line1}</div> <div>{this.props.address.line2}</div><div>{this.props.address.line3}</div>
                             {this.props.address.city}, {this.props.address.stateCode} {this.props.address.postalCode}</div>
                         <div>{this.props.contacts.phoneNumbers.map(number => <div>{number.phoneNumber} {number.type == "Voice" ? "" : number.type}</div>)}</div>
-                        <div>{this.props.contacts.emailAddresses.map(email => <div>{email.emailAddress}</div>)}</div>
-                        <div>{this.props.park.directionsInfo}</div>
+                        <div>{this.props.contacts.emailAddresses.map(email => <div>{email.emailAddress}</div>)}</div> */}
+                        <div className={styles.directions}>{this.props.park.directionsInfo}</div>
                         <div>{this.props.park.directionsUrl}</div>
                         <div>{this.props.park.weatherInfo}</div>
                     </Col>

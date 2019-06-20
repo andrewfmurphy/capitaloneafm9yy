@@ -37,18 +37,18 @@ app.get('/api/state', (req, res) => {
 
 app.get('/api/alerts', (req, res) => {
     axios.get(nps + "/alerts", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
-    .then(function (response) {
-        // handle success
-        //console.log(response.data);
-        //console.log("parkcode is" + req.query.stateCode);
-        data = response.data;
-        res.send(response.data);
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
 
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 
 
 
@@ -58,18 +58,18 @@ app.get('/api/alerts', (req, res) => {
 
 app.get('/api/articles', (req, res) => {
     axios.get(nps + "/articles", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
-    .then(function (response) {
-        // handle success
-        //console.log(response.data);
-        //console.log("parkcode is" + req.query.stateCode);
-        data = response.data;
-        res.send(response.data);
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
 
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 
 
 
@@ -77,40 +77,53 @@ app.get('/api/articles', (req, res) => {
 
 app.get('/api/events', (req, res) => {
     axios.get(nps + "/events", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
-    .then(function (response) {
-        // handle success
-        //console.log(response.data);
-        //console.log("parkcode is" + req.query.stateCode);
-        data = response.data;
-        res.send(response.data);
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
 
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 });
 
 app.get('/api/lessonplans', (req, res) => {
     axios.get(nps + "/lessonplans", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
-    .then(function (response) {
-        // handle success
-        //console.log(response.data);
-        //console.log("parkcode is" + req.query.stateCode);
-        data = response.data;
-        res.send(response.data);
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
 
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 
 
 
 });
 
 app.get('/api/newsreleases', (req, res) => {
+    axios.get(nps + "/newsreleases", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
+
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 
 
 
@@ -138,6 +151,19 @@ app.get('/api/parks', (req, res) => {
 });
 
 app.get('/api/people', (req, res) => {
+    axios.get(nps + "/people", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
+
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 
 
 
@@ -145,6 +171,20 @@ app.get('/api/people', (req, res) => {
 });
 
 app.get('/api/places', (req, res) => {
+    axios.get(nps + "/places", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
+
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
+
 
 
 
@@ -153,18 +193,18 @@ app.get('/api/places', (req, res) => {
 
 app.get('/api/visitorcenters', (req, res) => {
     axios.get(nps + "/visitorcenters", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
-    .then(function (response) {
-        // handle success
-        //console.log(response.data);
-        //console.log("parkcode is" + req.query.stateCode);
-        data = response.data;
-        res.send(response.data);
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
 
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 
 
 
@@ -172,16 +212,16 @@ app.get('/api/visitorcenters', (req, res) => {
 
 app.get('/api/campgrounds', (req, res) => {
     axios.get(nps + "/campgrounds", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
-    .then(function (response) {
-        // handle success
-        //console.log(response.data);
-        //console.log("parkcode is" + req.query.stateCode);
-        data = response.data;
-        res.send(response.data);
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            data = response.data;
+            res.send(response.data);
 
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
 });

@@ -9,7 +9,7 @@ class VisitorCenters extends Component {
     render() {
       return (
           <div className="centerlist">
-          {this.props.visitorcenters.map(center => <VisitorCenter name={center.name} description={center.description}/>)}
+          {this.props.visitorcenters.map(center => <VisitorCenter name={center.name} description={center.description} directions={center.directionsInfo}/>)}
           </div>
       );
     }

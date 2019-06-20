@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import styles from './visitorcenter.module.css';
 
 class VisitorCenter extends Component {
     constructor(props) {
@@ -7,9 +7,10 @@ class VisitorCenter extends Component {
     }
     render() {
       return (
-        <div className="center">
-        <div>{this.props.name}</div>
-        <div>{this.props.description}</div>
+        <div className={styles.center}>
+        <div className={styles.name}>{this.props.name}</div>
+        <div className={styles.description}>{this.props.description}</div>
+        <div className={styles.directions}>{this.props.directions}</div>
         </div>
       );
     }

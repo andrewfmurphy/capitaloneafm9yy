@@ -9,8 +9,8 @@ import Panel from './panel.js';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import ParkMain from './parkmain.js';
 import GeneralInfo from './generalinfo.js';
-
-
+import Media from './media.js';
+import Events from './events.js';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -25,7 +25,6 @@ class Park extends Component {
 
   componentDidMount() {
     // Call our fetch function below once the component mounts
-    console.log(this.props.match.path);
     this.callParkInfo()
       .then(res => {
         console.log(res.data[0]); this.setState({ park: res.data[0] })
@@ -51,7 +50,34 @@ class Park extends Component {
         console.log(res.data); this.setState({ educational: res.data })
       })
       .catch(err => console.log(err));
+    this.callEventsInfo()
+      .then(res => {
+        console.log(res.data); this.setState({ events: res.data })
+      })
+      .catch(err => console.log(err));
+      this.callArticlesInfo()
+      .then(res => {
+        console.log(res.data); this.setState({ articles: res.data })
+      })
+      .catch(err => console.log(err));
+      this.callPeopleInfo()
+      .then(res => {
+        console.log(res.data); this.setState({ people: res.data })
+      })
+      .catch(err => console.log(err));
+      this.callPlacesInfo()
+      .then(res => {
+        console.log(res.data); this.setState({ places: res.data })
+      })
+      .catch(err => console.log(err));
+      this.callNewsReleasesInfo()
+      .then(res => {
+        console.log(res.data); this.setState({ newsreleases: res.data })
+      })
+      .catch(err => console.log(err));
+      
   }
+
   callParkInfo = () => {
     return axios.get("/api/parks", { params: { parkCode: this.props.match.params.code, api_key: process.env.API_KEY, fields: "images,entranceFees,entrancePasses,operatingHours,contacts,addresses,latLong" } })
       .then(function (response) {
@@ -171,15 +197,71 @@ class Park extends Component {
       });;
   };
 
+  callNewsReleasesInfo = () => {
+    return axios.get("/api/newsreleases", { params: { parkCode: this.props.match.params.code, api_key: process.env.API_KEY } })
+      .then(function (response) {
+        // handle success
+        //console.log(response.data.data);
+        return response.data;
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        //
+      });;
+  };
+
+  callPeopleInfo = () => {
+    return axios.get("/api/people", { params: { parkCode: this.props.match.params.code, api_key: process.env.API_KEY } })
+      .then(function (response) {
+        // handle success
+        //console.log(response.data.data);
+        return response.data;
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        //
+      });;
+  };
+
+  callPlacesInfo = () => {
+    return axios.get("/api/places", { params: { parkCode: this.props.match.params.code, api_key: process.env.API_KEY } })
+      .then(function (response) {
+        // handle success
+        //console.log(response.data.data);
+        return response.data;
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        //
+      });;
+  };
+
+  
+
   render() {
-    if (this.state.park == null) {
+    if (this.state.events == null || this.state.park == null) {
       return (<div className="Park">Loading</div>)
     } else {
       return (
         <div className={styles.park}>
           <Container className={styles.parkcontainer}>
             <ParkTitle name={this.state.park.name} designation={this.state.park.designation} state={this.state.park.states} latlong={this.state.park.latLong} />
-            <Panel path={this.props.match.url}></Panel>
+            <Panel path={this.props.match.url} titles={{ generalinfo: "General Info", alerts: "Alerts", 
+            "": this.state.park.fullName, campgrounds: "Campgrounds", images: "Images", visitorcenters: "Visitor Centers", educational: "Educational",
+            media: "Media", events: "Events"}} title={this.props.location.pathname.substring(this.props.match.url.length + 1)}></Panel>
+
             <Switch>
               <Route
                 exact path={`${this.props.match.path}`}
@@ -197,11 +279,18 @@ class Park extends Component {
                 render={() => <VisitorCenters visitorcenters={this.state.visitorcenters} />} />
               <Route
                 path="/park/:code/educational"
-                render={() => <Educational educational={this.state.educational} />} />
+                render={() => <Educational educational={this.state.educational} people={this.state.people} places={this.state.places}/>} />
               <Route
                 path="/park/:code/generalinfo"
                 render={() => <GeneralInfo park={this.state.park} address={this.state.park.addresses.find((address) => {
-                  return address.type=="Physical";})} contacts={this.state.park.contacts}/>} />
+                  return address.type == "Physical";
+                })} contacts={this.state.park.contacts} />} />
+                <Route
+                path="/park/:code/media"
+                render={() => <Media articles={this.state.articles} newsreleases={this.state.newsreleases}/>} />
+                <Route
+                path="/park/:code/events"
+                render={() => <Events events={this.state.events}/>} />
             </Switch>
           </Container>
         </div>

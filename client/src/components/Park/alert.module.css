@@ -1,0 +1,21 @@
+.title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.alert {
+    margin-bottom: 40px;
+    padding-left: 15px;
+    border-left: 2px solid black;
+
+}
+
+.description {
+    font-size: 18px;
+}
+
+.category {
+    font-size: 18px;
+    font-weight: 800;
+}

@@ -24,9 +24,6 @@ class ParkMain extends Component {
   render() {
     return (
       <Container>
-        <Row className={styles.title}>
-          {this.props.park.fullName}
-        </Row>
         <Row>
           <Col>
             <div className={styles.description}>{this.props.park.description}</div>

@@ -10,16 +10,19 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import styles from './panel.module.css';
 
+
+
 class Panel extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
+
     }
+    
     render() {
         return (
             <div className={styles.panel}>
                     <Navbar expand="false">
-                        <Navbar.Brand href="#home"></Navbar.Brand>
+                        <Navbar.Brand bsPrefix={styles.subheading} href="#home">{this.props.titles[this.props.title]}</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav" className="text-right">
                             <Nav className={styles.menu}>
@@ -27,9 +30,10 @@ class Panel extends Component {
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/alerts"}>Alerts</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/campgrounds"}>Campgrounds</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/visitorcenters"}>Visitor Centers</Link></Nav>
+                                <Nav className={styles.menuitem}><Link to={this.props.path + "/images"}>Images</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/educational"}>Educational</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/events"}>Events</Link></Nav>
-                                <Nav className={styles.menuitem}><Link to={this.props.path + "/events"}>Media</Link></Nav>
+                                <Nav className={styles.menuitem}><Link to={this.props.path + "/media"}>Media</Link></Nav>
 
                             </Nav>
                             {/* <Form inline>

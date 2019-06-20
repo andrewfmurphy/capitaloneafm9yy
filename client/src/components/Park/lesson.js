@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-
+import styles from './lesson.module.css';
 
 class Lesson extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-      return (
-        <div className="lesson">
-        <div>{this.props.title}</div>
-        <div>{this.props.description}</div>
-        <div>{this.props.duration}</div>
-        <div>{this.props.grade}</div>
-        <div>{this.props.subject}</div>
-        <div>{this.props.url}</div>
-        </div>
-      );
-    }
+  constructor(props) {
+    super(props);
   }
+  render() {
+    return (
+      <div className={styles.lesson}>
+        <div className={styles.title}>{this.props.title}</div>
+        <div className={styles.description}>{this.props.description}</div>
+        <div>
+          <span className={styles.duration}>{this.props.duration} | </span>
+          <span className={styles.subject}>{this.props.subject} | </span>
+          <span className={styles.grade}>{this.props.grade}</span>
+        </div>
+        {/* <div className={styles.url}>{this.props.url}</div> */}
+      </div>
+    );
+  }
+}
 
 export default Lesson;
 

@@ -1,0 +1,22 @@
+.center {
+    margin-bottom: 40px;
+    border-left: 2px solid black;
+    padding-left: 15px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.directions {
+    font-size: 14px;
+    color: gray;
+}
+
