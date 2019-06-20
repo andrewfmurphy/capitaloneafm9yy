@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import './lister.css';
+import styles from './lister.module.css';
 //import Panel from './panel.js';
 import ParkItem from './parkitem.js';
-import CardColumns from 'react-bootstrap/CardColumns';
 
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import queryString from 'query-string';
+import SearchHeader from './searchheader';
+import SearchForm from '../Main/searchform.js';
+import Spinner from 'react-bootstrap/Spinner';
 
 const axios = require('axios');
 
 class Lister extends Component {
+    constructor(props) {
+        super(props)
+        console.log('created');
+    }
     state = {
-        query: { fields: "images", api_key: process.env.API_KEY },
+        query: { fields: "images,addresses", api_key: process.env.API_KEY },
         designations: null,
         items: null
     };
@@ -25,6 +31,13 @@ class Lister extends Component {
         }
         else {
             this.state.designations = this.props.location.state.designations;
+        }
+
+        if (this.props.location.state.query === null || this.props.location.state.query == "") {
+
+        }
+        else {
+            this.state.query["q"] = this.props.location.state.query;
         }
 
 
@@ -49,8 +62,9 @@ class Lister extends Component {
                     });
                     results = modified;
                 }
-                
+
                 this.setState({ items: results })
+                console.log(this.state.items)
             })
             .catch(err => console.log(err));
     }
@@ -70,29 +84,69 @@ class Lister extends Component {
             });;
     };
 
-
     render() {
         if (this.state.items == null) {
-            return (<div className="Park">Loading</div>)
+            return (
+                <div className={styles.spinnerwrapper}>
+                    <Spinner className={styles.spinner} animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                </div>
+            )
         } else {
             if (this.state.items.length == 0) {
                 return (
-                    <div className="Lister">NO RESULTS</div>
+                    <div className="listings">
+                        <Container>
+                            <SearchHeader
+                                query={this.state.query.q == null ? null : this.state.query.q}
+                                state={this.props.location.state.location == null ? null : this.props.location.state.location}
+                                designation={this.state.designations == null ? null : this.state.designations} />
+                            <div className={styles.noresults}>No results: Search again</div>
+
+                        </Container>
+                    </div>
                 )
             }
             else {
                 return (
-                    <div className="ParkItem">
+                    <div className="listings">
                         <Container>
-                            <CardColumns>
-                                {this.state.items.map(item => <ParkItem name={item.fullName} designation={item.designation} code={item.parkCode} image={(item.images[0] == null ? "None" : item.images[0].url)} />)}
-                            </CardColumns>
+                            <SearchHeader
+                                query={this.state.query.q == null ? null : this.state.query.q}
+                                state={this.props.location.state.location == null ? null : this.props.location.state.location}
+                                designation={this.state.designations == null ? null : this.state.designations} />
+                            <Row>
+                                <Col>
+                                    {this.state.items.slice(0, this.state.items.length / 2).map(item => <ParkItem
+                                        name={item.fullName}
+                                        designation={item.designation}
+                                        address={item.addresses == null ? null : item.addresses.find((address) => {
+                                            return address.type == "Physical";
+                                        })}
+                                        code={item.parkCode}
+                                        image={(item.images[0] == null ? null : item.images[0].url)}
+                                    />)}
+                                </Col>
+                                <Col>
+                                    {this.state.items.slice(this.state.items.length / 2, this.state.items.length).map(item => <ParkItem
+                                        name={item.fullName}
+                                        designation={item.designation}
+                                        address={item.addresses == null ? null : item.addresses.find((address) => {
+                                            return address.type == "Physical";
+                                        })}
+                                        code={item.parkCode}
+                                        image={(item.images[0] == null ? null : item.images[0].url)}
+                                    />)}
+                                </Col>
+                            </Row>
+
                         </Container>
                     </div>
                 );
-    
+
             }
-           
+
         }
 
     }

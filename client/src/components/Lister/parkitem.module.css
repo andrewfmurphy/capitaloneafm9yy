@@ -1,0 +1,19 @@
+.parkitem {
+    margin-bottom: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 24px;
+    color: #222222;
+}
+
+.designation {
+    color: #555555;
+}
+
+.img {
+    width: 100%;
+}

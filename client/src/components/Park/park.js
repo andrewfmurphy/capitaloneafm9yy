@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import styles from './park.module.css';
-import ParkTitle from './parktitle.js';
-import Alerts from './alerts.js';
-import Campgrounds from './campgrounds.js';
-import VisitorCenters from './visitorcenters.js';
-import Educational from './educational.js';
-import Panel from './panel.js';
+import ParkTitle from './main/parktitle.js';
+import Alerts from './alerts/alerts.js';
+import Campgrounds from './campgrounds/campgrounds.js';
+import VisitorCenters from './visitorcenters/visitorcenters.js';
+import Educational from './educational/educational.js';
+import Panel from './main/panel.js';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import ParkMain from './parkmain.js';
-import GeneralInfo from './generalinfo.js';
-import Media from './media.js';
-import Events from './events.js';
+import ParkMain from './main/parkmain.js';
+import GeneralInfo from './generalinfo/generalinfo.js';
+import Media from './media/media.js';
+import Events from './events/events.js';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import NewsReleases from './newsreleases/newsreleases.js';
+import Images from './images/images.js';
+import Spinner from 'react-bootstrap/Spinner';
 
 const axios = require('axios');
 
@@ -55,27 +58,27 @@ class Park extends Component {
         console.log(res.data); this.setState({ events: res.data })
       })
       .catch(err => console.log(err));
-      this.callArticlesInfo()
+    this.callArticlesInfo()
       .then(res => {
         console.log(res.data); this.setState({ articles: res.data })
       })
       .catch(err => console.log(err));
-      this.callPeopleInfo()
+    this.callPeopleInfo()
       .then(res => {
         console.log(res.data); this.setState({ people: res.data })
       })
       .catch(err => console.log(err));
-      this.callPlacesInfo()
+    this.callPlacesInfo()
       .then(res => {
         console.log(res.data); this.setState({ places: res.data })
       })
       .catch(err => console.log(err));
-      this.callNewsReleasesInfo()
+    this.callNewsReleasesInfo()
       .then(res => {
         console.log(res.data); this.setState({ newsreleases: res.data })
       })
       .catch(err => console.log(err));
-      
+
   }
 
   callParkInfo = () => {
@@ -248,19 +251,26 @@ class Park extends Component {
       });;
   };
 
-  
+
 
   render() {
-    if (this.state.events == null || this.state.park == null) {
-      return (<div className="Park">Loading</div>)
+    if (this.state.articles == null || this.state.newsreleases == null) {
+      return (
+        <div className={styles.spinnerwrapper}>
+          <Spinner className={styles.spinner} animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </div>)
     } else {
       return (
         <div className={styles.park}>
           <Container className={styles.parkcontainer}>
             <ParkTitle name={this.state.park.name} designation={this.state.park.designation} state={this.state.park.states} latlong={this.state.park.latLong} />
-            <Panel path={this.props.match.url} titles={{ generalinfo: "General Info", alerts: "Alerts", 
-            "": this.state.park.fullName, campgrounds: "Campgrounds", images: "Images", visitorcenters: "Visitor Centers", educational: "Educational",
-            media: "Media", events: "Events"}} title={this.props.location.pathname.substring(this.props.match.url.length + 1)}></Panel>
+            <Panel path={this.props.match.url} titles={{
+              generalinfo: "General Info", alerts: "Alerts",
+              "": this.state.park.fullName, campgrounds: "Campgrounds", images: "Images", visitorcenters: "Visitor Centers", educational: "Educational",
+              media: "Media", events: "Events"
+            }} title={this.props.location.pathname.substring(this.props.match.url.length + 1)}></Panel>
 
             <Switch>
               <Route
@@ -279,18 +289,24 @@ class Park extends Component {
                 render={() => <VisitorCenters visitorcenters={this.state.visitorcenters} />} />
               <Route
                 path="/park/:code/educational"
-                render={() => <Educational educational={this.state.educational} people={this.state.people} places={this.state.places}/>} />
+                render={() => <Educational educational={this.state.educational} people={this.state.people} places={this.state.places} />} />
               <Route
                 path="/park/:code/generalinfo"
                 render={() => <GeneralInfo park={this.state.park} address={this.state.park.addresses.find((address) => {
                   return address.type == "Physical";
                 })} contacts={this.state.park.contacts} />} />
-                <Route
+              <Route
                 path="/park/:code/media"
-                render={() => <Media articles={this.state.articles} newsreleases={this.state.newsreleases}/>} />
-                <Route
+                render={() => <Media articles={this.state.articles} />} />
+              <Route
                 path="/park/:code/events"
-                render={() => <Events events={this.state.events}/>} />
+                render={() => <Events events={this.state.events} />} />
+              <Route
+                path="/park/:code/newsreleases"
+                render={() => <NewsReleases newsreleases={this.state.newsreleases} />} />
+              <Route
+                path="/park/:code/images"
+                render={() => <Images images={this.state.park.images} />} />
             </Switch>
           </Container>
         </div>

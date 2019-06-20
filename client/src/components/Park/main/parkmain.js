@@ -3,18 +3,17 @@ import styles from './parkmain.module.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import PricingHours from './pricinghours.js';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card'
 
-import infoicon from './symbollibrary/information-black-30.svg';
-import alerticon from './symbollibrary/safety-caution-alerts-black-30.svg';
-import campgroundicon from './symbollibrary/campground-black-30.svg';
-import visitorcentericon from './symbollibrary/visitor-center-black-30.svg';
-import imagesicon from './symbollibrary/photography-black-30.svg';
-import educationicon from './symbollibrary/young-scientist-program-black-30.svg';
-import eventsicon from './symbollibrary/calendar-events-black-30.svg';
-import mediaicon from './symbollibrary/newspaper-black-30.svg';
+import infoicon from '../symbollibrary/information-black-30.svg';
+import alerticon from '../symbollibrary/safety-caution-alerts-black-30.svg';
+import campgroundicon from '../symbollibrary/campground-black-30.svg';
+import visitorcentericon from '../symbollibrary/visitor-center-black-30.svg';
+import imagesicon from '../symbollibrary/photography-black-30.svg';
+import educationicon from '../symbollibrary/young-scientist-program-black-30.svg';
+import eventsicon from '../symbollibrary/calendar-events-black-30.svg';
+import mediaicon from '../symbollibrary/newspaper-black-30.svg';
 
 class ParkMain extends Component {
   constructor(props) {

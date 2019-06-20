@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import styles from './main.module.css';
-import Panel from '../Park/panel.js';
+import Panel from '../Park/main/panel.js';
 import Typed from 'typed.js';
 import Container from 'react-bootstrap/Container';
 
 import SearchForm from './searchform.js';
-import SearchForm2 from './searchform2.js'
 
 
 const axios = require('axios');
@@ -14,6 +13,15 @@ const axios = require('axios');
 
 
 class Main extends Component {
+    constructor(props) {
+        super(props)
+
+    }
+
+    state = {
+        failed: false
+    }
+
 
     componentDidMount() {
 
@@ -34,6 +42,7 @@ class Main extends Component {
             loop: true,
             shuffle: true
         };
+
         // this.el refers to the <span> in the render() method
         this.typed = new Typed(this.el, options);
     }
@@ -58,7 +67,7 @@ class Main extends Component {
                     </div>
                 </Container>
 
-                <SearchForm2 className={styles.searchform}/>
+                <SearchForm className={styles.searchform} failed={this.state.failed}/>
 
             </div>
 

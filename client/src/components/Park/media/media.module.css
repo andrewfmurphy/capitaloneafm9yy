@@ -1,0 +1,9 @@
+.col1 {
+    border-right: 1px solid lightgray;
+    padding-right: 40px;
+}
+
+.col2 {
+    padding-left: 30px;
+    padding-right: 15px;
+}

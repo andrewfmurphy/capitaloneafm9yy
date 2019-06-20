@@ -1,0 +1,27 @@
+.searchheader {
+    margin-top: 20px;
+}
+
+.title {
+    font-family: 'Gothic A1';
+    font-weight: 800;
+    font-size: 48px;
+    color: #0C1713;
+    text-transform: uppercase;
+    
+}
+
+.designations {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    color: gray;
+}
+
+.divider {
+    margin-bottom: 40px;
+}
+
+.latlong {
+    text-align: right;
+}

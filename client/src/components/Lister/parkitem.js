@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-
+import styles from './parkitem.module.css';
 class ParkItem extends Component {
     constructor(props) {
         super(props);
@@ -10,16 +10,14 @@ class ParkItem extends Component {
     }
     render() {
         return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={this.props.image} />
-                <Card.Body>
-                    <Card.Title>{this.props.name}</Card.Title>
-                    <Card.Text>
-                        {this.props.designation}
-                    </Card.Text>
-                    <Link to={"/park/" + this.props.code}><Button variant="primary">Go</Button> </Link>
-                </Card.Body>
-            </Card>
+            <div className={styles.parkitem}>
+                <Link to={"/park/" + this.props.code}><img className={styles.img} src={this.props.image} /></Link>
+                <Link to={"/park/" + this.props.code}><div className={styles.title}>{this.props.name}</div></Link>
+                <div className={styles.location}>{this.props.address == null ? null : this.props.address.city}
+                    {this.props.address == null ? null : ", "} {this.props.address == null ? null : this.props.address.stateCode}
+                </div>
+                <div className={styles.designation}>{this.props.designation}</div>
+            </div>
         );
     }
 }

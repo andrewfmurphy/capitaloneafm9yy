@@ -34,7 +34,7 @@ class Panel extends Component {
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/educational"}>Educational</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/events"}>Events</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/media"}>Media</Link></Nav>
-
+                                <Nav className={styles.menuitem}><Link to={this.props.path + "/newsreleases"}>News Releases</Link></Nav>
                             </Nav>
                             {/* <Form inline>
                                 <FormControl type="text" placeholder="Search" />

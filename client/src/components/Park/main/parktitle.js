@@ -23,7 +23,7 @@ class ParkTitle extends Component {
                         <div className={styles.designator}>{this.props.designation}</div>
                     </Col>
                     <Col xs={4}>
-                    <div className={styles.latlong}>{this.props.latlong.substring(4,15)}&#176;N</div>
+                    <div className={styles.latlong}>{this.props.latlong.substring(this.props.latlong.search(":") + 1,this.props.latlong.search(","))}&#176;N</div>
                     </Col>
                 </Row>
                 <Row>
@@ -32,7 +32,7 @@ class ParkTitle extends Component {
                     
                     </Col>
                     <Col xs={4}>
-                    <div className={styles.latlong}>{this.props.latlong.substring(23, 34)}&#176;W</div>
+                    <div className={styles.latlong}>{this.props.latlong.substring(this.props.latlong.search(",") + 8, this.props.latlong.length)}&#176;W</div>
                     </Col>
                 </Row>
                 <hr className={styles.divider}></hr>
