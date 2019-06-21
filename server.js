@@ -11,6 +11,16 @@ const nps = "https://developer.nps.gov/api/v1";
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+
+    
 // create a GET route
 app.get('/express_backend', (req, res) => {
     res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
@@ -225,3 +235,4 @@ app.get('/api/campgrounds', (req, res) => {
             console.log(error);
         });
 });
+
