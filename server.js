@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const axios = require('axios');
 
-const port = process.env.PORT || 3001;
+const port = 5000;
 
 const nps = "https://developer.nps.gov/api/v1";
 
@@ -232,7 +232,7 @@ if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
   // Handle React routing, return all requests to React app
-    app.get('/*', function(req, res) {
+    app.get('/', function(req, res) {
       res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
 
