@@ -9,7 +9,7 @@ class Alerts extends Component {
     render() {
       return (
           <div className="AlertPanel">
-          {this.props.alerts.map(alert => <Alert title={alert.title} category={alert.category} description={alert.description}/>)}
+          {this.props.alerts.map(alert => <Alert title={alert.title} category={alert.category} description={alert.description} url={alert.url}/>)}
           </div>
       );
     }

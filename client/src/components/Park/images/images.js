@@ -9,13 +9,16 @@ class Images extends Component {
         return (
             <div className="images">
                 {this.props.images.map(image =>
-                    <div>
+                    <div className={styles.image}>
                         <div className={styles.title}>
                             {image.title}
                         </div>
                         <img src={image.url} alt={image.altText} className={styles.img} />
-                        <div>
-                            {image.caption} {image.credit}
+                        <div className={styles.subheading}>
+                            {image.caption}
+                        </div>
+                        <div className={styles.subheading}>
+                            {image.credit}
                         </div>
                     </div>)}
             </div>

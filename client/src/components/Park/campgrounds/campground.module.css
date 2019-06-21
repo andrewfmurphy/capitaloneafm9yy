@@ -1,4 +1,51 @@
+.campground {
+    margin-bottom: 60px;
+    padding-left: 15px;
+    border-left: 2px solid black;
+}
+
 .name {
     font-size: 24px;
     font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.link {
+    color: #222222;
+}
+
+.campsites {
+    color: gray;
+}
+
+.amenities {
+    font-size: 18px;
+}
+
+.amenitiestitle {
+    font-weight: 800;
+}
+
+.no {
+    color: red;
+}
+
+.yes {
+    color: green;
+}
+
+.description {
+    font-size: 18px;
+}
+
+.button {
+    margin-left: 20px;
+}
+
+.header {
+    font-size: 24px;
+}
+
+.info {
+    margin-bottom: 20px;
 }

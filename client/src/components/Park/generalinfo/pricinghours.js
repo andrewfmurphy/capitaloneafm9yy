@@ -36,39 +36,38 @@ class PricingHours extends Component {
                             <Tab.Pane eventKey="hours">
                                 {this.props.hours.map(item =>
                                     <Container bsPrefix={styles.hours}>
-
-
                                         <Row className={styles.title}><Col className="title">{item.name}</Col></Row>
                                         <Row>
-                                            <Col className="day">Monday: </Col>
-                                            <Col><span className="dayspan">{item.standardHours.monday}</span></Col>
+                                            <Col className={styles.day}>Monday: </Col>
+                                            <Col><span className={styles.dayspan}>{item.standardHours.monday}</span></Col>
                                         </Row>
                                         <Row>
-                                            <Col className="day">Tuesday: </Col>
-                                            <Col><span className="dayspan">{item.standardHours.tuesday}</span></Col>
+                                            <Col className={styles.day}>Tuesday: </Col>
+                                            <Col><span className={styles.dayspan}>{item.standardHours.tuesday}</span></Col>
                                         </Row>
                                         <Row>
-                                            <Col className="day">Wednesday: </Col>
-                                            <Col><span className="dayspan">{item.standardHours.wednesday}</span></Col>
+                                            <Col className={styles.day}>Wednesday: </Col>
+                                            <Col><span className={styles.dayspan}>{item.standardHours.wednesday}</span></Col>
                                         </Row>
                                         <Row>
-                                            <Col className="day">Thursday: </Col>
-                                            <Col><span className="dayspan">{item.standardHours.thursday}</span></Col>
+                                            <Col className={styles.day}>Thursday: </Col>
+                                            <Col><span className={styles.dayspan}>{item.standardHours.thursday}</span></Col>
                                         </Row>
                                         <Row>
-                                            <Col className="day">Friday: </Col>
-                                            <Col><span className="dayspan">{item.standardHours.friday}</span></Col>
+                                            <Col className={styles.day}>Friday: </Col>
+                                            <Col><span className={styles.dayspan}>{item.standardHours.friday}</span></Col>
                                         </Row>
                                         <Row>
-                                            <Col className="day">Saturday: </Col>
-                                            <Col><span className="dayspan">{item.standardHours.saturday}</span></Col>
+                                            <Col className={styles.day}>Saturday: </Col>
+                                            <Col><span className={styles.dayspan}>{item.standardHours.saturday}</span></Col>
                                         </Row>
                                         <Row>
-                                            <Col className="day">Sunday: </Col>
-                                            <Col><span className="dayspan">{item.standardHours.sunday}</span></Col>
+                                            <Col className={styles.day}>Sunday: </Col>
+                                            <Col><span className={styles.dayspan}>{item.standardHours.sunday}</span></Col>
                                         </Row>
-                                        <span className={styles.descriptionspan}>{item.description} </span> 
-                                        </Container>)}
+                                        <div className={styles.descriptionhoursspan}>{item.description}
+                                        </div>
+                                    </Container>)}
                             </Tab.Pane>
                         </Tab.Content>
 

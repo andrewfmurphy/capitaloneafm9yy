@@ -8,7 +8,7 @@ class Lesson extends Component {
   render() {
     return (
       <div className={styles.lesson}>
-        <div className={styles.title}>{this.props.title}</div>
+        <div className={styles.title}><a href={this.props.url} className={styles.link}>{this.props.title}</a></div>
         <div className={styles.description}>{this.props.description}</div>
         <div>
           <span className={styles.duration}>{this.props.duration} | </span>

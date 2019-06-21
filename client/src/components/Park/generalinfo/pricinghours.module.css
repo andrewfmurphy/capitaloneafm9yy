@@ -43,3 +43,24 @@
 .contentpane {
     width: 100%;
 }
+
+.day {
+    font-weight: 800;
+}
+
+.dayspan {
+    color: gray;
+    font-family: "Roboto";
+}
+
+.title {
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.descriptionhoursspan {
+    font-size: 14px;
+    color: gray;
+    margin-top: 15px;
+}

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import styles from './campground.module.css';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 class Campground extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.accessibility);
     this.state = {
       showa: false,
       showb: false
@@ -26,27 +29,42 @@ class Campground extends Component {
     let aclose = () => this.setState({ showa: false });
     let bclose = () => this.setState({ showb: false });
     return (
-      <div className="center">
-        <div className={styles.name}>{this.props.name}</div>
-        <div className={styles.description}>{this.props.description}</div>
-        <div className={styles.campsites}>
-          <div>Total Sites: {this.props.campsites["totalsites"]}</div>
-          <div>Tent Only: {this.props.campsites["tentonly"]}</div>
-          <div>RV Only: {this.props.campsites["rvonly"]}</div>
-          <div>Electrical Hookups: {this.props.campsites["electricalhookups"]}</div>
-          <div>Group Sites: {this.props.campsites.group}</div>
-          <div>Horse Sites: {this.props.campsites["horse"]}</div>
-          <div>Boat Access: {this.props.campsites["walkboatto"]}</div>
-          <div>Other: {this.props.campsites["other"]}</div>
+      <div className={styles.campground}>
+        <div className={styles.name}><a className={styles.link} href={this.props.url}>{this.props.name}</a>
+          <Button className={styles.button} variant="outline-secondary" onClick={() => this.setState({ showa: true })}>
+            Amenities
+        </Button>
+          <Button className={styles.button} variant="outline-secondary" onClick={() => this.setState({ showb: true })}>
+            Accessibility
+        </Button>
+
         </div>
+        <Row>
+          <Col xs={6}>
+            <div className={styles.description}>{this.props.description}</div>
+          </Col>
+          <Col xs={2}>
+            <div className={styles.campsites}>
+              <div>Total Sites: {this.props.campsites["totalsites"]}</div>
+              <div>Tent Only: {this.props.campsites["tentonly"]}</div>
+              <div>RV Only: {this.props.campsites["rvonly"]}</div>
+              <div>Electrical Hookups: {this.props.campsites["electricalhookups"]}</div>
+              <div>Group Sites: {this.props.campsites.group}</div>
+              <div>Horse Sites: {this.props.campsites["horse"]}</div>
+              <div>Boat Access: {this.props.campsites["walkboatto"]}</div>
+              <div>Other: {this.props.campsites["other"]}</div>
+            </div>
+          </Col>
+          <Col xs={3}>
+          </Col>
+        </Row>
+
 
 
 
         {/* {this.props.directionsoverview}{this.props.amenities} {this.props.regulationsoverview} */}
 
-        <Button variant="primary" onClick={() => this.setState({ showa: true })}>
-          Amenities
-        </Button>
+
 
         <Modal
           show={this.state.showa}
@@ -61,27 +79,25 @@ class Campground extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className={styles.amenities}>
-              <div>Amphitheater: {this.props.amenities.amphitheater == "" ? "No" : this.props.amenities.amphitheater}</div>
-              <div>Cellphone reception: {this.props.amenities.cellphonereception == "" ? "No" : this.props.amenities.cellphonereception}</div>
-              <div>Dumpstation: {this.props.amenities.dumpstation == "" ? "No" : this.props.amenities.dumpstation}</div>
-              <div>Firewood for sale: {this.props.amenities.firewoodforsale == "" ? "No" : this.props.amenities.firewoodforsale}</div>
-              <div>Food storage lockers: {this.props.amenities.foodstoragelockers == "" ? "No" : this.props.amenities.foodstoragelockers}</div>
-              <div>Ice for sale: {this.props.amenities.iceavailableforsale == "" ? "No" : this.props.amenities.iceavailableforsale}</div>
-              <div>Internet connectivity: {this.props.amenities.internetconnectivity == "" ? "No" : this.props.amenities.internetconnectivity}</div>
-              <div>Laundry: {this.props.amenities.laundry == "" ? "No" : this.props.amenities.laundry}</div>
-              <div>Potable water: {this.props.amenities.potablewater.length == 0 ? "No" : this.props.amenities.potablewater.map(x => x)}</div>
-              <div>Showers: {this.props.amenities.showers.length == 0 ? "No" : this.props.amenities.showers.map(x => x)}</div>
-              <div>Staff on site: {this.props.amenities.stafforvolunterrhostonsite == "" ? "No" : this.props.amenities.stafforvolunterrhostonsite}</div>
-              <div>Toilets: {this.props.amenities.toilets.length == 0 ? "No" : this.props.amenities.toilets.map(x => x)}</div>
-              <div>Trash collection: {this.props.amenities.trashrecyclingcollection == "" ? "No" : this.props.amenities.trashrecyclingcollection}</div>
+              <div className={this.props.amenities.amphitheater == "" || this.props.amenities.amphitheater == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Amphitheater: </span>{this.props.amenities.amphitheater == "" ? "No" : this.props.amenities.amphitheater}</div>
+              <div className={this.props.amenities.cellphonereception == "" || this.props.amenities.cellphonereception == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Cellphone reception: </span>{this.props.amenities.cellphonereception == "" ? "No" : this.props.amenities.cellphonereception}</div>
+              <div className={this.props.amenities.dumpstation == "" || this.props.amenities.dumpstation == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Dumpstation: </span>{this.props.amenities.dumpstation == "" ? "No" : this.props.amenities.dumpstation}</div>
+              <div className={this.props.amenities.firewoodforsale == "" || this.props.amenities.firewoodforsale == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Firewood for sale: </span>{this.props.amenities.firewoodforsale == "" ? "No" : this.props.amenities.firewoodforsale}</div>
+              <div className={this.props.amenities.foodstoragelockers == "" || this.props.amenities.foodstoragelockers == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Food storage lockers: </span>{this.props.amenities.foodstoragelockers == "" ? "No" : this.props.amenities.foodstoragelockers}</div>
+              <div className={this.props.amenities.iceavailableforsale == "" || this.props.amenities.iceavailableforsale == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Ice for sale: </span>{this.props.amenities.iceavailableforsale == "" ? "No" : this.props.amenities.iceavailableforsale}</div>
+              <div className={this.props.amenities.internetconnectivity == "" || this.props.amenities.internetconnectivity == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Internet connectivity: </span>{this.props.amenities.internetconnectivity == "" ? "No" : this.props.amenities.internetconnectivity}</div>
+              <div className={this.props.amenities.laundry == "" || this.props.amenities.laundry == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Laundry: </span>{this.props.amenities.laundry == "" ? "No" : this.props.amenities.laundry}</div>
+              <div className={this.props.amenities.potablewater.length == 0 ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Potable water: </span>{this.props.amenities.potablewater.length == 0 ? "No" : this.props.amenities.potablewater.map(x => x)}</div>
+              <div className={this.props.amenities.showers.length == 0 ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Showers: </span>{this.props.amenities.showers.length == 0 ? "No" : this.props.amenities.showers.map(x => x)}</div>
+              <div className={this.props.amenities.stafforvolunterrhostonsite == "" || this.props.amenities.stafforvolunterrhostonsite == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Staff on site: </span>{this.props.amenities.stafforvolunterrhostonsite == "" ? "No" : this.props.amenities.stafforvolunterrhostonsite}</div>
+              <div className={this.props.amenities.toilets.length == 0 ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Toilets: </span>{this.props.amenities.toilets.length == 0 ? "No" : this.props.amenities.toilets.map(x => x)}</div>
+              <div className={this.props.amenities.trashrecyclingcollection == "" || this.props.amenities.trashrecyclingcollection == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Trash collection: </span>{this.props.amenities.trashrecyclingcollection == "" ? "No" : this.props.amenities.trashrecyclingcollection}</div>
             </div>
           </Modal.Body>
         </Modal>
 
 
-        <Button variant="primary" onClick={() => this.setState({ showb: true })}>
-          Accessibility
-        </Button>
+
 
         <Modal
           show={this.state.showb}
@@ -96,19 +112,22 @@ class Campground extends Component {
           </Modal.Header>
           <Modal.Body>
             <div className={styles.accessibility}>
-              <div>{this.props.accessibility.additionalinfo}</div>
-              <div>ADA {this.props.accessibility.adainfo}</div>
-              <div>{this.props.accessibility.accessroads.map(x => x)}</div>
-              <div>{this.props.accessibility.cellphoneinfo}</div>
-              <div>{this.props.accessibility.classifications.map(x => x)}</div>
-              <div>{this.props.accessibility.firestovepolicy}</div>
-              <div>{this.props.accessibility.internetinfo}</div>
-              <div>{this.props.accessibility.rvallowed}</div>
-              <div>{this.props.accessibility.rvinfo}</div>
-              <div>{this.props.accessibility.rvmaxlength}</div>
-              <div>{this.props.accessibility.trailerallowed}</div>
-              <div>{this.props.accessibility.trailermaxlength}</div>
-              <div>{this.props.accessibility.wheelchairaccess}</div>
+              {this.props.accessibility.additionalinfo != "" ? <div className={styles.header}>Additional Info</div> : null}
+              <div className={styles.info}>{this.props.accessibility.additionalinfo}</div>
+              {this.props.accessibility.adainfo != "" ? <div className={styles.header}>ADA Info</div> : null}
+              <div className={styles.info}>ADA {this.props.accessibility.adainfo}</div>
+              {this.props.accessibility.accessroads != "" || this.props.accessibility.accessroads.length != 0 ? <div className={styles.header}>Access Roads</div> : null}
+              <div className={styles.info}>{this.props.accessibility.accessroads.map(x => x)}</div>
+              {this.props.accessibility.cellphoneinfo != "" ? <div className={styles.header}>CellPhone Info</div> : null}
+              <div className={styles.info}>{this.props.accessibility.cellphoneinfo}</div>
+              {this.props.accessibility.firestovepolicy != "" ? <div className={styles.header}>Firestove Policy</div> : null}
+              <div className={styles.info}>{this.props.accessibility.firestovepolicy}</div>
+              {this.props.accessibility.internetinfo != "" ? <div className={styles.header}>Internet Info</div> : null}
+              <div className={styles.info}>{this.props.accessibility.internetinfo}</div>
+              {this.props.accessibility.rvinfo != "" ? <div className={styles.header}>RV Info</div> : null}
+              <div className={styles.info}>{this.props.accessibility.rvinfo}</div>
+              {this.props.accessibility.wheelchairaccess != "" ? <div className={styles.header}>Wheelchair Access</div> : null}
+              <div className={styles.info}>{this.props.accessibility.wheelchairaccess}</div>
             </div>
           </Modal.Body>
         </Modal>

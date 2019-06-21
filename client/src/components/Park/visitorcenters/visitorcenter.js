@@ -8,7 +8,7 @@ class VisitorCenter extends Component {
     render() {
       return (
         <div className={styles.center}>
-        <div className={styles.name}>{this.props.name}</div>
+        <div className={styles.name}><a className={styles.link} href={this.props.url}>{this.props.name}</a></div>
         <div className={styles.description}>{this.props.description}</div>
         <div className={styles.directions}>{this.props.directions}</div>
         </div>

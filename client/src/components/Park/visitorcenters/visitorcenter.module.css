@@ -4,6 +4,10 @@
     padding-left: 15px;
 }
 
+.link {
+    color: #222222;
+}
+
 .name {
     font-size: 24px;
     font-weight: 800;

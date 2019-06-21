@@ -10,9 +10,9 @@ class NewsRelease extends Component {
         return (
             <div className={styles.newsrelease}>
                 {this.props.img == "" ? null : <a href={this.props.url}><img className={styles.img} src={this.props.img}></img></a>}
+                <div className={styles.date}>{this.props.date}</div>
                 <div className={styles.title}><a href={this.props.url}>{this.props.title}</a></div>
                 <div className={styles.description}>{this.props.abstract}</div>
-                <div className={styles.date}>{this.props.date}</div>
             </div >
         );
     }

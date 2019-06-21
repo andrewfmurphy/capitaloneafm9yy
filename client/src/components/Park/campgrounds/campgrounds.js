@@ -10,7 +10,7 @@ class Campgrounds extends Component {
         return (
             <div className="campgroundlist">
                 {this.props.campgrounds.map(cg => <Campground name={cg.name} description={cg.description} campsites={cg.campsites} accessibility ={cg.accessibility}
-                directions={cg.directionsoverview} amenities={cg.amenities} regulations={cg.regulationsoverview}/>)}
+                directions={cg.directionsoverview} amenities={cg.amenities} url={cg.regulationsurl} regulations={cg.regulationsoverview}/>)}
             </div>
         );
     }

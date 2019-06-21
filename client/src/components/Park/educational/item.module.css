@@ -1,0 +1,18 @@
+.title {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.image {
+    width: 30%;
+    margin-bottom: 5px;
+}
+
+.link {
+    color: #222222;
+}
+
+.description {
+    font-size: 18px;
+    color: gray;
+}

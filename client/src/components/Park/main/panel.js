@@ -27,6 +27,7 @@ class Panel extends Component {
                         <Navbar.Collapse id="basic-navbar-nav" className="text-right">
                             <Nav className={styles.menu}>
                                 <Nav className={styles.menuitem}><Link to={this.props.path}>Main</Link></Nav>
+                                <Nav className={styles.menuitem}><Link to={this.props.path + "/generalinfo"}>General Info</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/alerts"}>Alerts</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/campgrounds"}>Campgrounds</Link></Nav>
                                 <Nav className={styles.menuitem}><Link to={this.props.path + "/visitorcenters"}>Visitor Centers</Link></Nav>

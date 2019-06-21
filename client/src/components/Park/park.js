@@ -254,7 +254,7 @@ class Park extends Component {
 
 
   render() {
-    if (this.state.articles == null || this.state.newsreleases == null) {
+    if (this.state.articles == null || this.state.newsreleases == null || this.state.park == null || this.state.campgrounds == null || this.state.events == null) {
       return (
         <div className={styles.spinnerwrapper}>
           <Spinner className={styles.spinner} animation="border" role="status">
@@ -275,7 +275,7 @@ class Park extends Component {
             <Switch>
               <Route
                 exact path={`${this.props.match.path}`}
-                render={() => <ParkMain park={this.state.park} />} />
+                render={() => <ParkMain path={this.props.match.url} park={this.state.park} />} />
               <Route
                 path="/park/:code/alerts"
                 render={() => <Alerts alerts={this.state.alerts} />} />
