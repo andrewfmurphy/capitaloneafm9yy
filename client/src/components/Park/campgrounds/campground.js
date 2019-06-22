@@ -4,33 +4,31 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
+import externallink from '../../resources/external-link.svg';
+import map from '../../resources/map.svg';
+import SimpleMap from '../../maps/maps.js';
 class Campground extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.accessibility);
     this.state = {
       showa: false,
-      showb: false
+      showb: false,
+      showc: false
     };
-
-    this.handleShow = () => {
-      this.setState({ show: true });
-    };
-
-    this.handleHide = () => {
-      this.setState({ show: false });
-    };
-
   }
 
 
   render() {
     let aclose = () => this.setState({ showa: false });
     let bclose = () => this.setState({ showb: false });
+    let cclose = () => this.setState({ showc: false });
+
     return (
       <div className={styles.campground}>
-        <div className={styles.name}><a className={styles.link} href={this.props.url}>{this.props.name}</a>
+        <div className={styles.name}>{this.props.url != "" ? <span><a className={styles.link} href={this.props.url}>{this.props.name + " "}
+          <img src={externallink} height="10px" width="10px"></img></a>{" "}
+            <img onClick={() => this.setState({ showc: true })} src={map} height="10px" width="10px"></img></span> : 
+            <span>{this.props.name + " "} <img onClick={() => this.setState({ showc: true })} src={map} height="10px" width="10px"></img></span>}
           <Button className={styles.button} variant="outline-secondary" onClick={() => this.setState({ showa: true })}>
             Amenities
         </Button>
@@ -88,8 +86,8 @@ class Campground extends Component {
               <div className={this.props.amenities.internetconnectivity == "" || this.props.amenities.internetconnectivity == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Internet connectivity: </span>{this.props.amenities.internetconnectivity == "" ? "No" : this.props.amenities.internetconnectivity}</div>
               <div className={this.props.amenities.laundry == "" || this.props.amenities.laundry == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Laundry: </span>{this.props.amenities.laundry == "" ? "No" : this.props.amenities.laundry}</div>
               <div className={this.props.amenities.potablewater.length == 0 ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Potable water: </span>{this.props.amenities.potablewater.length == 0 ? "No" : this.props.amenities.potablewater.map(x => x)}</div>
-              <div className={this.props.amenities.showers.length == 0 ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Showers: </span>{this.props.amenities.showers.length == 0 ? "No" : this.props.amenities.showers.map(x => x)}</div>
-              <div className={this.props.amenities.stafforvolunterrhostonsite == "" || this.props.amenities.stafforvolunterrhostonsite == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Staff on site: </span>{this.props.amenities.stafforvolunterrhostonsite == "" ? "No" : this.props.amenities.stafforvolunterrhostonsite}</div>
+              <div className={this.props.amenities.showers.length == 0 || this.props.amenities.showers[0] == "None" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Showers: </span>{this.props.amenities.showers.length == 0 ? "No" : this.props.amenities.showers.map(x => x)}</div>
+              <div className={this.props.amenities.stafforvolunteerhostonsite == "" || this.props.amenities.stafforvolunteerhostonsite == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Staff on site: </span>{this.props.amenities.stafforvolunteerhostonsite == "" ? "No" : this.props.amenities.stafforvolunteerhostonsite}</div>
               <div className={this.props.amenities.toilets.length == 0 ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Toilets: </span>{this.props.amenities.toilets.length == 0 ? "No" : this.props.amenities.toilets.map(x => x)}</div>
               <div className={this.props.amenities.trashrecyclingcollection == "" || this.props.amenities.trashrecyclingcollection == "No" ? styles.no : styles.yes}><span className={styles.amenitiestitle}>Trash collection: </span>{this.props.amenities.trashrecyclingcollection == "" ? "No" : this.props.amenities.trashrecyclingcollection}</div>
             </div>
@@ -129,6 +127,23 @@ class Campground extends Component {
               {this.props.accessibility.wheelchairaccess != "" ? <div className={styles.header}>Wheelchair Access</div> : null}
               <div className={styles.info}>{this.props.accessibility.wheelchairaccess}</div>
             </div>
+          </Modal.Body>
+        </Modal>
+
+        <Modal
+          show={this.state.showc}
+          onHide={cclose}
+          size="lg"
+          aria-labelledby="example-custom-modal-styling-title"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-custom-modal-styling-title">
+              {this.props.name}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <SimpleMap lat={this.props.latlong.substring(this.props.latlong.search(":") + 1, this.props.latlong.search(","))}
+              long={this.props.latlong.substring(this.props.latlong.search(",") + 6, this.props.latlong.length-1)} />
           </Modal.Body>
         </Modal>
       </div>

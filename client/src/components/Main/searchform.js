@@ -11,7 +11,7 @@ import styles from './searchform.module.css';
 class SearchForm extends Component {
         constructor(props) {
                 super(props);
-                this.state = { location: 'national', designations: [], query: null};
+                this.state = { location: 'AL', designations: [], query: null };
 
                 this.handleChange = this.handleChange.bind(this);
                 this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,7 +20,7 @@ class SearchForm extends Component {
 
         handleChange(event) {
 
-                
+
                 if (event.target.type == "checkbox") {
                         if (event.target.checked && this.state.designations.includes(event.target.value) == false) {
                                 this.state.designations.push(event.target.value)
@@ -62,7 +62,7 @@ class SearchForm extends Component {
                         return <Redirect
                                 to={{
                                         pathname: "/search",
-                                        state: { location: this.state.location, designations: this.state.designations, query: this.state.query}
+                                        state: { location: this.state.location, designations: this.state.designations, query: this.state.query }
                                 }}
                         />
 
@@ -72,7 +72,7 @@ class SearchForm extends Component {
                                 <Container className={styles.searchform}>
                                         <Row className={styles.statebar}>
                                                 <Col className={styles.label} xs={3}>
-                                                
+
                                                 </Col>
                                                 <Col xs={6}>
                                                         < Form.Control as="select"
@@ -84,8 +84,6 @@ class SearchForm extends Component {
                                                                 }
                                                         >
 
-                                                                <option value="national">National
-                        </option>
                                                                 <option value="AL">Alabama
                         </option>
                                                                 <option value="AK">Alaska
@@ -203,15 +201,15 @@ class SearchForm extends Component {
                                         </Row>
                                         <Row className={styles.searchbar}>
                                                 <Col className={styles.label} xs={3}>
-                                                
+
                                                 </Col>
                                                 <Col lg={6}>
-                                                        <Form.Control type="text" placeholder="optional" onChange={this.handleChange}/>
+                                                        <Form.Control type="text" placeholder="optional" onChange={this.handleChange} />
 
                                                 </Col>
                                                 <Col>
 
-                                                        <Button variant="primary" type="submit" onClick={this.handleSubmit}>
+                                                        <Button variant="outline-danger" type="submit" onClick={this.handleSubmit}>
                                                                 Search
                             </Button>
                                                 </Col>

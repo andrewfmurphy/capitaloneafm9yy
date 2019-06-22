@@ -38,7 +38,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/generalinfo"}><Card.Img variant="top" src={infoicon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/generalinfo"}><Card.Title className={styles.iconcaption}>General Info</Card.Title></Link>
+              <Link to={this.props.path + "/generalinfo"}><div className={styles.iconcaption}>General Info</div></Link>
               </Card.Body>
             </Card>
 
@@ -48,7 +48,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/alerts"}><Card.Img variant="top" src={alerticon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/alerts"}><Card.Title className={styles.iconcaption}>Alerts</Card.Title></Link>
+              <Link to={this.props.path + "/alerts"}><div className={styles.iconcaption}>Alerts</div></Link>
               </Card.Body>
             </Card>
 
@@ -57,7 +57,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/campgrounds"}><Card.Img variant="top" src={campgroundicon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/campgrounds"}><Card.Title className={styles.iconcaption}>Campgrounds</Card.Title></Link>
+              <Link to={this.props.path + "/campgrounds"}><div className={styles.iconcaption}>Campgrounds</div></Link>
               </Card.Body>
             </Card>
 
@@ -67,7 +67,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/visitorcenters"}><Card.Img variant="top" src={visitorcentericon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/visitorcenters"}><Card.Title className={styles.iconcaption}>Visitor Centers</Card.Title></Link>
+              <Link to={this.props.path + "/visitorcenters"}><div className={styles.iconcaption}>Visitor Centers</div></Link>
               </Card.Body>
             </Card>
 
@@ -78,7 +78,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/images"}><Card.Img variant="top" src={imagesicon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/images"}><Card.Title className={styles.iconcaption}>Images</Card.Title></Link>
+              <Link to={this.props.path + "/images"}><div className={styles.iconcaption}>Images</div></Link>
               </Card.Body>
             </Card>
 
@@ -88,7 +88,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/events"}><Card.Img variant="top" src={eventsicon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/events"}><Card.Title className={styles.iconcaption}>Events</Card.Title></Link>
+              <Link to={this.props.path + "/events"}><div className={styles.iconcaption}>Events</div></Link>
               </Card.Body>
             </Card>
 
@@ -97,7 +97,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/educational"}><Card.Img variant="top" src={educationicon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/educational"}><Card.Title className={styles.iconcaption}>Educational</Card.Title></Link>
+              <Link to={this.props.path + "/educational"}><div className={styles.iconcaption}>Educational</div></Link>
               </Card.Body>
             </Card>
 
@@ -107,7 +107,7 @@ class ParkMain extends Component {
             <Card bsPrefix={styles.icon}>
             <Link to={this.props.path + "/media"}><Card.Img variant="top" src={mediaicon} height="180px" width="180px" /></Link>
               <Card.Body>
-              <Link to={this.props.path + "/media"}><Card.Title className={styles.iconcaption}>Media</Card.Title></Link>
+              <Link to={this.props.path + "/media"}><div className={styles.iconcaption}>Media</div></Link>
               </Card.Body>
             </Card>
 

@@ -1,11 +1,16 @@
 
 
 .header {
-    color: #222222;
+    color: #E85A4F;
     font-size: 24px;
     font-weight: 800;
     margin-left: 40px;
     font-family: "Gothic A1";
+}
+
+.header:hover {
+    color: #E85A4F;
+    text-decoration: underline #007BFF;
 }
 
 .fee {

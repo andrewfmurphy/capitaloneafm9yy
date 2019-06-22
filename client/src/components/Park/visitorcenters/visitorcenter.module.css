@@ -5,7 +5,12 @@
 }
 
 .link {
-    color: #222222;
+    color: #E85A4F;
+}
+
+.link:hover {
+    color: #E85A4F;
+    text-decoration: underline #007BFF;
 }
 
 .name {

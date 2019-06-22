@@ -21,6 +21,7 @@
 
 .row1{
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .icon {
@@ -29,7 +30,9 @@
 
 .iconcaption {
     text-align: center;
-    color: #222222;
+    color: #E8584F;
+    font-weight: 800;
+    font-size: 24px;
 }
 
 .title {

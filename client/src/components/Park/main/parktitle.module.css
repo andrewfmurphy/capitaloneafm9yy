@@ -1,5 +1,4 @@
 .parktitle {
-
 }
 
 .name {
@@ -14,6 +13,7 @@
 .designator {
     font-family: 'Roboto';
     font-weight: 400;
+    color: #E85A4F;
     font-size: 18px;
 }
 
@@ -23,4 +23,9 @@
 
 .latlong {
     text-align: right;
+}
+
+.lat {
+    text-align: right;
+    padding-right: 15px;
 }

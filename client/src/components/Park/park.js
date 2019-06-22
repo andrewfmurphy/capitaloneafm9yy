@@ -254,7 +254,8 @@ class Park extends Component {
 
 
   render() {
-    if (this.state.articles == null || this.state.newsreleases == null || this.state.park == null || this.state.campgrounds == null || this.state.events == null) {
+    if (this.state.articles == null || this.state.newsreleases == null || this.state.park == null || this.state.campgrounds == null || this.state.events == null
+      || this.state.visitorcenters == null || this.state.people == null || this.state.places == null || this.state.alerts == null || this.state.educational == null) {
       return (
         <div className={styles.spinnerwrapper}>
           <Spinner className={styles.spinner} animation="border" role="status">

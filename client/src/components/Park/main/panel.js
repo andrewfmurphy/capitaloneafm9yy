@@ -22,7 +22,7 @@ class Panel extends Component {
         return (
             <div className={styles.panel}>
                     <Navbar expand="false">
-                        <Navbar.Brand bsPrefix={styles.subheading} href="#home">{this.props.titles[this.props.title]}</Navbar.Brand>
+                        <Navbar.Brand bsPrefix={styles.subheading}>{this.props.titles[this.props.title]}</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav" className="text-right">
                             <Nav className={styles.menu}>

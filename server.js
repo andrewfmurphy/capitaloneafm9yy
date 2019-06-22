@@ -153,6 +153,26 @@ app.get('/api/parks', (req, res) => {
 
 });
 
+app.get('/api/search', (req, res) => {
+    axios.get(nps + "/parks", { params: { limit: req.query.limit, q: req.query.q, stateCode: req.query.stateCode, parkCode: req.query.parkCode, fields: req.query.fields, api_key: process.env.API_KEY } })
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            //console.log("parkcode is" + req.query.stateCode);
+            res.send(response.data);
+
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        });
+
+
+
+
+});
+
+
 app.get('/api/people', (req, res) => {
     axios.get(nps + "/people", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
         .then(function (response) {

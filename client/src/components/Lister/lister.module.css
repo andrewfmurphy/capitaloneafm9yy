@@ -7,3 +7,10 @@
     margin-top: 300px;
     text-align: center;
 }
+
+.noresults {
+    font-size: 48px;
+    text-align: center;
+    margin-top: 200px;
+    font-weight: 800;
+}

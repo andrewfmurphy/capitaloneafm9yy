@@ -14,7 +14,7 @@
     margin-bottom: 0px;
 }
 .contacts {
-    color: gray;
+    color: #8E8D8A;
     font-family: "Roboto";
     font-size: 18px;
     margin-bottom: 40px;
@@ -27,6 +27,10 @@
     margin-bottom: 5px;
 }
 
+.directionslink {
+    color: #E85A4F;
+}
+
 .line1 {
     font-size: 24px;
     font-weight: 800;
@@ -35,15 +39,17 @@
 .line2 {
     font-size: 24px;
     font-weight: 800;
+    color: #222222;
 }
 
 .line3 {
     font-size: 24px;
     font-weight: 800;
+    color: #222222;
 }
 
 .line4 {
     font-size: 18px;
-    color: gray;
     font-family: "Roboto";
+    color: #8E8D8A;
 }

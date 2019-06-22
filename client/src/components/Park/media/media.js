@@ -10,6 +10,25 @@ class Media extends Component {
     super(props);
   }
   render() {
+    
+    const scope = {
+      none: {
+        "font-size": "48px",
+        "text-align": "center",
+        "margin-top": "200px",
+        "font-weight": "800"
+
+      }
+    }
+    if (this.props.articles.length == 0) {
+     
+      return (
+        <div style={scope.none}>
+          There are no Articles at this time
+          </div>
+      )
+    }
+    else {
     return (
       <Container className={styles.media}>
         <Row>
@@ -30,6 +49,7 @@ class Media extends Component {
     );
   }
 }
+}
 
 export default Media;
 
@@ -38,18 +58,4 @@ export default Media;
 
 //TODO LIST
 
-//ADD LINKS TO SEARCH FROM STATES, CATEGORIES ON PARK PAGE
-//MEDIA
-//EVENTS
-//PEOPLE PLACES IN EDUCATIONAL
-//IMAGES
-//CSS
-//SEARCH
-//CSS FOR FRONT PAGE ETC
-//CLEAN MAYBE
-//DOCUMENTATION
-//COMMENT
-//TESTING?
-//WRITEUP
-//CHECK REQUIREMENTS
 //https://en.wikipedia.org/wiki/Ninety-ninety_rule

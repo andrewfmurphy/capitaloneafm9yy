@@ -19,7 +19,7 @@ class Lister extends Component {
         console.log('created');
     }
     state = {
-        query: { fields: "images,addresses", api_key: process.env.API_KEY },
+        query: { limit: 100, fields: "images,addresses", api_key: process.env.API_KEY },
         designations: null,
         items: null
     };
@@ -41,12 +41,7 @@ class Lister extends Component {
         }
 
 
-        if (this.props.location.state.location == "national") {
-            this.state.query["stateCode"] = "AL,AK,AZ,AR,CA,CO,CT,DC,DE,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY"
-        }
-        else {
-            this.state.query["stateCode"] = this.props.location.state.location;
-        }
+        this.state.query["stateCode"] = this.props.location.state.location;
 
 
         this.callSearch()
@@ -69,7 +64,7 @@ class Lister extends Component {
             .catch(err => console.log(err));
     }
     callSearch = () => {
-        return axios.get("/api/parks", { params: this.state.query })
+        return axios.get("/api/search", { params: this.state.query })
             .then(function (response) {
                 // handle success
                 //console.log(response.data.data);

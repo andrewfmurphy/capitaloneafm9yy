@@ -26,7 +26,8 @@ class GeneralInfo extends Component {
                         <div className={styles.directions}>
                             {this.props.park.directionsInfo}
                         </div>
-                        {this.props.park.directionsUrl != null ? <div>Additional directions information available <a href={this.props.park.directionsUrl}>here</a>.</div> : null}
+                        {this.props.park.directionsUrl != null ? <div>Additional directions information available
+                             <a className={styles.directionslink} href={this.props.park.directionsUrl}> here</a>.</div> : null}
                         <div className={styles.weather}>{this.props.park.weatherInfo}</div>
                     </Col>
                     <Col>

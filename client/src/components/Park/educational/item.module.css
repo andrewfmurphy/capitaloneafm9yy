@@ -9,10 +9,17 @@
 }
 
 .link {
-    color: #222222;
+    color: #E85A4F;
 }
-
+.link:hover {
+    color: #E85A4F;
+    text-decoration: underline #007BFF;
+}
 .description {
     font-size: 18px;
     color: gray;
+}
+
+.item {
+    margin-bottom: 30px;
 }

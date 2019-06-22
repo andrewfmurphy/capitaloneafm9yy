@@ -11,23 +11,28 @@
 }
 
 .link {
-    color: #222222;
+    color: #E85A4F;
+}
+
+.link:hover {
+    color: #E85A4F;
+    text-decoration: underline #007BFF;
 }
 
 .campsites {
-    color: gray;
+    color: #555555;
 }
 
 .amenities {
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .amenitiestitle {
-    font-weight: 800;
+    font-weight: 400;
 }
 
 .no {
-    color: red;
+    color: #E98074;
 }
 
 .yes {

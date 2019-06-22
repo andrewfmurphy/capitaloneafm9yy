@@ -9,7 +9,12 @@
 }
 
 .title a {
-    color: #222222;
+    color: #E85A4F;
+}
+
+.title a:hover{
+    color: #E85A4F;
+    text-decoration: underline #007BFF;
 }
 
 .description {

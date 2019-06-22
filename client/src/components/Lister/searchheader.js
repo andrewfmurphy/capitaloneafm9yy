@@ -4,7 +4,8 @@ import styles from './searchheader.module.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 
@@ -75,13 +76,25 @@ class SearchHeader extends Component {
             "national": "National"
         };
     }
-    
+
     render() {
         return (
 
             <div className={styles.searchheader}>
+                <Row>
+                    <Col>
+                        <div className={styles.title}>{this.props.query == null ? this.statenames[this.props.state] : this.props.query}</div>
+                    </Col>
+                    <Col xs={2}>
+                        <Link className={styles.link} to={"/"}>
+                            <Button variant="outline-danger" type="submit">
+                                Search Again
+                        </Button>
+                        </Link>
 
-                <div className={styles.title}>{this.props.query == null ? this.statenames[this.props.state] : this.props.query}</div>
+                    </Col>
+                </Row>
+
 
                 {this.props.query == null ? null : <div className={styles.designations}>{this.statenames[this.props.state]}</div>}
 

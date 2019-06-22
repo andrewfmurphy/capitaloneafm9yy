@@ -9,12 +9,16 @@
 }
 
 .title a {
-    color: #222222;
+    color: #E85A4F;
 }
 
 .description {
     font-size: 18px;
-    color: gray;
+    color: #222222;
+}
+.link:hover {
+    color: #E85A4F;
+    text-decoration: underline #007BFF;
 }
 
 .img {
