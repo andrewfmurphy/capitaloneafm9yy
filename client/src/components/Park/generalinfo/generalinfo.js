@@ -14,11 +14,11 @@ class GeneralInfo extends Component {
             <Container>
                 <Row>
                     <Col xs={9}>
-                        <div className={styles.address}>
+                        {this.props.address != null ? <div className={styles.address}>
                             <div className={styles.line1}>{this.props.address.line1}</div>
                             <div className={styles.line2}>{this.props.address.line2}</div><div className={styles.line3}>{this.props.address.line3}</div>
                             <div className={styles.line4}>{this.props.address.city}, {this.props.address.stateCode} {this.props.address.postalCode}</div>
-                        </div>
+                        </div> : null}
                         <div className={styles.contacts}>
                             <div>{this.props.contacts.phoneNumbers.map(number => <div>{number.phoneNumber} {number.type == "Voice" ? "" : number.type}</div>)}</div>
                             <div>{this.props.contacts.emailAddresses.map(email => <div>{email.emailAddress}</div>)}</div>
