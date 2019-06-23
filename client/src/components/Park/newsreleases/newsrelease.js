@@ -1,8 +1,12 @@
+//Component for news release listings
+
 import React, { Component } from 'react';
+
 import styles from './newsrelease.module.css';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
+//Icons
 import externallink from '../../resources/external-link.svg';
+
 class NewsRelease extends Component {
     constructor(props) {
         super(props);
@@ -20,5 +24,3 @@ class NewsRelease extends Component {
 }
 
 export default NewsRelease;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

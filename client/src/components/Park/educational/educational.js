@@ -1,7 +1,14 @@
+//View component for educational listings, which includes lesson plans, people, and places
+
 import React, { Component } from 'react';
+
+import styles from './educational.module.css';
+
+//Component imports
 import Lesson from './lesson.js';
 import Item from './item.js';
-import styles from './educational.module.css';
+
+
 class Educational extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +24,7 @@ class Educational extends Component {
 
       }
     }
+    //No current lesson plans
     if (this.props.educational.length == 0) {
 
       return (
@@ -26,6 +34,8 @@ class Educational extends Component {
           </div>
           <div className={styles.header}>People</div>
           <div className={styles.items}>
+
+          {/* No associated people */}
             {this.props.people.length != 0 ? this.props.people.map(person => <Item title={person.title} description={person.listingdescription} image={person.listingimage.url} url={person.url} />) :
               <div style={scope.none}>
                 There are no associated people at this time
@@ -34,6 +44,8 @@ class Educational extends Component {
           </div>
           <div className={styles.header}>Places</div>
           <div className={styles.items}>
+
+          {/* No associated places */}
             {this.props.places.length != 0 ? this.props.places.map(place => <Item title={place.title} description={place.listingdescription} image={place.listingimage.url} url={place.url} />) :
               <div style={scope.none}>
                 There are no associated places at this time
@@ -49,17 +61,21 @@ class Educational extends Component {
             subject={lesson.subject} url={lesson.url} description={lesson.questionobjective} />)}
           <div className={styles.header}>People</div>
           <div className={styles.items}>
+
+          {/* No associated people */}
             {this.props.people.length != 0 ? this.props.people.map(person => <Item title={person.title} description={person.listingdescription} image={person.listingimage.url} url={person.url} />) :
               <div style={scope.none}>
-                There are no Lesson Plans at this time
+                There are no associated people at this time
                 </div>}
 
           </div>
           <div className={styles.header}>Places</div>
           <div className={styles.items}>
+
+          {/* No associated places */}
             {this.props.places.length != 0 ? this.props.places.map(place => <Item title={place.title} description={place.listingdescription} image={place.listingimage.url} url={place.url} />) :
               <div style={scope.none}>
-                There are no Lesson Plans at this time
+                There are no associated places at this time
               </div>}
           </div>
         </div>
@@ -69,5 +85,3 @@ class Educational extends Component {
 }
 
 export default Educational;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

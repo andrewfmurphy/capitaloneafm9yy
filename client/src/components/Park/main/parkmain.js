@@ -1,11 +1,16 @@
+//Main view for park pages, serves as a "dashboard"
+
 import React, { Component } from 'react';
+
 import styles from './parkmain.module.css';
+
+//Bootstrap imports
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card'
 
+//Icons
 import infoicon from '../symbollibrary/information-black-30.svg';
 import alerticon from '../symbollibrary/safety-caution-alerts-black-30.svg';
 import campgroundicon from '../symbollibrary/campground-black-30.svg';
@@ -119,7 +124,4 @@ class ParkMain extends Component {
 }
 
 export default ParkMain;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION
-
 

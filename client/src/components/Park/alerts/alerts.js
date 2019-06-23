@@ -1,4 +1,8 @@
+//View component for alerts
+
 import React, { Component } from 'react';
+
+//Component imports
 import Alert from './alert.js'
 
 
@@ -16,6 +20,7 @@ class Alerts extends Component {
 
       }
     }
+    //No current alerts
     if (this.props.alerts.length == 0) {
      
       return (
@@ -36,5 +41,3 @@ class Alerts extends Component {
 }
 
 export default Alerts;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

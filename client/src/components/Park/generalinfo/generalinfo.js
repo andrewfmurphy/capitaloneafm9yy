@@ -1,9 +1,17 @@
+//View for general info page, includes directions, weather, address and contact info
+
 import React, { Component } from 'react';
+
 import styles from './generalinfo.module.css';
+
+//Component imports
 import PricingHours from './pricinghours.js';
+
+//Bootstrap imports
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+
 class GeneralInfo extends Component {
     constructor(props) {
         super(props);
@@ -40,5 +48,3 @@ class GeneralInfo extends Component {
 }
 
 export default GeneralInfo;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

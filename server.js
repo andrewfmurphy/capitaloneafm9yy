@@ -1,3 +1,5 @@
+// Node/express backend, serves as an internal API which makes the actual calls to the NPS API
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -19,24 +21,6 @@ app.get('/express_backend', (req, res) => {
     res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-
-app.get('/api/state', (req, res) => {
-
-    axios.get(nps + "/campgrounds", { params: { stateCode: req.query.statecode, parkCode: req.query.parkcode, api_key: process.env.API_KEY } })
-        .then(function (response) {
-            // handle success
-            //console.log(response.data);
-            data = response.data;
-            res.send(data);
-
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-            res.send(error);
-        });
-
-});
 
 app.get('/api/alerts', (req, res) => {
     axios.get(nps + "/alerts", { params: { stateCode: req.query.stateCode, parkCode: req.query.parkCode, api_key: process.env.API_KEY } })
@@ -248,6 +232,8 @@ app.get('/api/campgrounds', (req, res) => {
             console.log(error);
         });
 });
+
+//Handles forwarding for deployment to Heroku
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files

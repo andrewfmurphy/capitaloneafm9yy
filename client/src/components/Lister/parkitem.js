@@ -1,13 +1,22 @@
+//Individual Search Listing
+
 import React, { Component } from 'react';
+
+import styles from './parkitem.module.css';
+
+//Bootstrap imports
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+
 import { Link } from 'react-router-dom';
-import styles from './parkitem.module.css';
+
+
 class ParkItem extends Component {
     constructor(props) {
         super(props);
-        //console.log(this.props.image);
+
     }
+
     render() {
         return (
             <div className={styles.parkitem}>
@@ -23,5 +32,3 @@ class ParkItem extends Component {
 }
 
 export default ParkItem;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

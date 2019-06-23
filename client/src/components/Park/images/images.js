@@ -1,5 +1,10 @@
+//View for images
+
 import React, { Component } from 'react';
+
 import styles from './images.module.css';
+
+//Component imports
 import ImgModal from './imgmodal.js';
 
 class Images extends Component {
@@ -16,6 +21,8 @@ class Images extends Component {
 
             }
         }
+
+        //No current images
         if (this.props.images.length == 0) {
 
             return (
@@ -47,5 +54,3 @@ class Images extends Component {
 }
 
 export default Images;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

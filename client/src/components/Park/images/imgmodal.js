@@ -1,6 +1,12 @@
+//Component for image listings, supports "expansion" by clicking on the image
+
 import React, { Component } from 'react';
+
 import styles from './imgmodal.module.css';
+
+//Bootstrap imports
 import Modal from 'react-bootstrap/Modal';
+
 class ImgModal extends Component {
     constructor(props) {
         super(props);
@@ -9,6 +15,8 @@ class ImgModal extends Component {
         }
     }
     render() {
+
+        //Modal logic
         let lgClose = () => this.setState({ lgShow: false });
         return (
             <div className={styles.imgmodal}>
@@ -35,5 +43,3 @@ class ImgModal extends Component {
 }
 
 export default ImgModal;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

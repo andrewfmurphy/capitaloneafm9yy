@@ -1,4 +1,8 @@
+//View for visitor centers
+
 import React, { Component } from 'react';
+
+//Component imports
 import VisitorCenter from './visitorcenter.js'
 
 
@@ -16,6 +20,8 @@ class VisitorCenters extends Component {
   
         }
       }
+
+      //No current visitor centers
       if (this.props.visitorcenters.length == 0) {
        
         return (
@@ -36,5 +42,3 @@ class VisitorCenters extends Component {
   }
 
 export default VisitorCenters;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

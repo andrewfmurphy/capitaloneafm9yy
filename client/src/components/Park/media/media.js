@@ -1,6 +1,13 @@
+//View for article components
+
 import React, { Component } from 'react';
+
 import styles from './media.module.css';
+
+//Component imports
 import Article from './article.js';
+
+//Bootstrap imports
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -20,6 +27,7 @@ class Media extends Component {
 
       }
     }
+    //No current articles
     if (this.props.articles.length == 0) {
      
       return (
@@ -52,10 +60,3 @@ class Media extends Component {
 }
 
 export default Media;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION
-
-
-//TODO LIST
-
-//https://en.wikipedia.org/wiki/Ninety-ninety_rule

@@ -1,9 +1,18 @@
+//Component for visitor center listings, contains map visualization for visitor centers
+
 import React, { Component } from 'react';
+
 import styles from './visitorcenter.module.css';
+
+//Bootstrap imports
+import Modal from 'react-bootstrap/Modal';
+
+//Icons
 import externallink from '../../resources/external-link.svg';
 import map from '../../resources/map.svg';
+
+//Component imports
 import SimpleMap from '../../maps/maps.js';
-import Modal from 'react-bootstrap/Modal';
 
 class VisitorCenter extends Component {
   constructor(props) {
@@ -38,8 +47,8 @@ class VisitorCenter extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <SimpleMap lat={this.props.latlong.substring(this.props.latlong.search(":") + 1, this.props.latlong.search(","))}
-              long={this.props.latlong.substring(this.props.latlong.search(",") + 6, this.props.latlong.length-1)} />
+            {this.props.latlong != "" ? <SimpleMap lat={this.props.latlong.substring(this.props.latlong.search(":") + 1, this.props.latlong.search(","))}
+              long={this.props.latlong.substring(this.props.latlong.search(",") + 6, this.props.latlong.length-1)} /> : "No coordinate data available"}
           </Modal.Body>
         </Modal>
       </div>
@@ -48,5 +57,3 @@ class VisitorCenter extends Component {
 }
 
 export default VisitorCenter;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

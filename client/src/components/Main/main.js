@@ -1,25 +1,21 @@
+//Main page and search screen
+
 import React, { Component } from 'react';
+
 import styles from './main.module.css';
-import Panel from '../Park/main/panel.js';
-import Typed from 'typed.js';
+
+//Bootstrap imports
 import Container from 'react-bootstrap/Container';
 
+//Component imports
 import SearchForm from './searchform.js';
 
-
-const axios = require('axios');
-
-
-
+import Typed from 'typed.js';
 
 class Main extends Component {
     constructor(props) {
         super(props)
 
-    }
-
-    state = {
-        failed: false
     }
 
 
@@ -67,7 +63,7 @@ class Main extends Component {
                     </div>
                 </Container>
 
-                <SearchForm className={styles.searchform} failed={this.state.failed}/>
+                <SearchForm className={styles.searchform}/>
 
             </div>
 
@@ -77,5 +73,3 @@ class Main extends Component {
 }
 
 export default Main;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

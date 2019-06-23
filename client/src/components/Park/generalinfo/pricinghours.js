@@ -1,10 +1,16 @@
+//Component that displays both pricing information and hours of operation
+
 import React, { Component } from 'react';
+
+import styles from './pricinghours.module.css'
+
+//Bootstrap imports
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import styles from './pricinghours.module.css'
+
 class PricingHours extends Component {
     constructor(props) {
         super(props);
@@ -80,5 +86,3 @@ class PricingHours extends Component {
 }
 
 export default PricingHours;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

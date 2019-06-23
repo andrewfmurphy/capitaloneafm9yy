@@ -1,4 +1,8 @@
+//View for news releases
+
 import React, { Component } from 'react';
+
+//Component imports
 import NewsRelease from './newsrelease.js'
 
 
@@ -17,6 +21,7 @@ class NewsReleases extends Component {
 
             }
         }
+        //No current news releases
         if (this.props.newsreleases.length == 0) {
 
             return (
@@ -36,6 +41,4 @@ class NewsReleases extends Component {
 }
 
 export default NewsReleases;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION
 

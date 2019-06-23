@@ -1,5 +1,10 @@
+//Individual listing for both people and places
+
 import React, { Component } from 'react';
+
 import styles from './item.module.css';
+
+//Icon
 import externallink from '../../resources/external-link.svg';
 
 class Item extends Component {
@@ -13,13 +18,9 @@ class Item extends Component {
                 <img className={styles.image} src={this.props.image}></img>
                 <div className={styles.description}>{this.props.description}</div>
 
-
-                {/* <div className={styles.url}>{this.props.url}</div> */}
             </div>
         );
     }
 }
 
 export default Item;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

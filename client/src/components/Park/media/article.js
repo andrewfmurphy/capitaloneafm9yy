@@ -1,8 +1,12 @@
+//Component for article listing
+
 import React, { Component } from 'react';
+
 import styles from './article.module.css';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
+//Icon
 import externallink from '../../resources/external-link.svg';
+
 class Article extends Component {
     constructor(props) {
         super(props);
@@ -19,5 +23,3 @@ class Article extends Component {
 }
 
 export default Article;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

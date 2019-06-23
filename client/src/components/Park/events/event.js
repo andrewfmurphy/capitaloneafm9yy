@@ -1,7 +1,13 @@
+//Component for event listings
+
 import React, { Component } from 'react';
+
 import styles from './event.module.css';
+
+//Bootstrap imports
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+
 class Event extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +16,8 @@ class Event extends Component {
         }
     }
     render() {
+
+        //Modal logic
         let close = () => this.setState({ show: false });
         return (
             <div className={styles.event}>
@@ -54,87 +62,3 @@ class Event extends Component {
 }
 
 export default Event;
-
-/*category: "Regular Event"
-
-categoryid: "0"
-
-contactemailaddress: ""
-
-contactname: ""
-
-contacttelephonenumber: ""
-
-createuser: ""
-
-date: "2019-06-20"
-
-dateend: "2019-06-20"
-
-dates: Array(18) [ "2019-06-20", "2019-06-22", "2019-06-23", … ]
-
-datestart: "2019-06-20"
-
-datetimecreated: ""
-
-datetimeupdated: ""
-
-description: "<p>Join a Ranger for a national park tradition, and take a look at the natural and cultural history of Shenandoah. Check visitor centers for topics. Dress for cool mountain nights.<br />Big Meadows Amphitheater (mile 51)<br />45 minutes.</p>"
-
-eventid: "0"
-
-feeinfo: "Free with park admission."
-
-id: "F2B34761-BCF7-F4FA-23D430EA4FB60B62"
-
-imageidlist: ""
-
-images: Array []
-
-infourl: ""
-
-isallday: "false"
-
-isfree: "true"
-
-isrecurring: "true"
-
-isregresrequired: "false"
-
-latitude: "38.531000"
-
-location: "Big Meadows Amphitheater (mile 51)"
-
-longitude: "-78.439530"
-
-organizationname: ""
-
-parkfullname: "Shenandoah National Park"
-
-portalname: ""
-
-recurrencedateend: "2019-09-02"
-
-recurrencedatestart: "2019-05-25"
-
-recurrencerule: "DTSTART=20190525T040000Z;UNTIL=20190902T040000Z;FREQ=WEEKLY;WKST=SU;BYDAY=SU,TU,TH,SA;COUNT=0;INTERVAL=1"
-
-regresinfo: ""
-
-regresurl: ""
-
-sitecode: "shen"
-
-sitetype: "park"
-
-subjectname: ""
-
-tags: Array(3) [ "evening program", "ranger program", "Ranger Talk" ]
-
-timeinfo: ""
-
-times: Array [ {…} ]
-
-title: "Big Meadows Evening Program"
-
-types: (1) [… */

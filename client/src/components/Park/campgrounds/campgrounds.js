@@ -1,4 +1,8 @@
+//View component for campgrounds
+
 import React, { Component } from 'react';
+
+//Component imports
 import Campground from './campground.js'
 
 
@@ -16,6 +20,7 @@ class Campgrounds extends Component {
 
             }
         }
+        //No current campgrounds
         if (this.props.campgrounds.length == 0) {
 
             return (
@@ -36,11 +41,3 @@ class Campgrounds extends Component {
 }
 
 export default Campgrounds;
-
-//regulations url weatheroverview campsites accessibility
-//directions
-//reservations
-//name
-//regulationsoverview
-//description
-//amenities

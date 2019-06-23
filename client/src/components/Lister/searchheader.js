@@ -1,13 +1,16 @@
+//Header for search view, displays search parameters
+
 import React, { Component } from 'react';
 
 import styles from './searchheader.module.css';
+
+//Bootstrap imports
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+
 import { Link } from 'react-router-dom';
-
-
 
 class SearchHeader extends Component {
     constructor(props) {
@@ -108,6 +111,3 @@ class SearchHeader extends Component {
 }
 
 export default SearchHeader;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION
-

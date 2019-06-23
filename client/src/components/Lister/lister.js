@@ -1,30 +1,35 @@
-import React, { Component } from 'react';
-import styles from './lister.module.css';
-//import Panel from './panel.js';
-import ParkItem from './parkitem.js';
+//Search Results View, responsible for API calls to backend when a search is "fired", displays loading and then results as necessary
 
+import React, { Component } from 'react';
+
+import styles from './lister.module.css';
+
+//Bootstrap imports
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import queryString from 'query-string';
-import SearchHeader from './searchheader';
-import SearchForm from '../Main/searchform.js';
 import Spinner from 'react-bootstrap/Spinner';
 
+//Component imports
+import ParkItem from './parkitem.js';
+import SearchHeader from './searchheader';
+
 const axios = require('axios');
+
 
 class Lister extends Component {
     constructor(props) {
         super(props)
-        console.log('created');
     }
     state = {
-        query: { limit: 100, fields: "images,addresses", api_key: process.env.API_KEY },
+        query: { limit: 100, fields: "images,addresses", api_key: process.env.API_KEY }, //query object which serves as parameters for the API
         designations: null,
         items: null
     };
 
     componentDidMount() {
+
+        //check for designation filtering
 
         if (this.props.location.state.designations === undefined || this.props.location.state.designations.length == 0) {
             // array empty or does not exist
@@ -32,6 +37,8 @@ class Lister extends Component {
         else {
             this.state.designations = this.props.location.state.designations;
         }
+
+        //check for query filtering
 
         if (this.props.location.state.query === null || this.props.location.state.query == "") {
 
@@ -47,7 +54,6 @@ class Lister extends Component {
         this.callSearch()
             .then(res => {
                 let results = res.data
-                console.log(results);
                 if (this.state.designations != null) {
                     let modified = []
                     results.forEach(item => {
@@ -63,6 +69,7 @@ class Lister extends Component {
             })
             .catch(err => console.log(err));
     }
+
     callSearch = () => {
         return axios.get("/api/search", { params: this.state.query })
             .then(function (response) {
@@ -80,6 +87,8 @@ class Lister extends Component {
     };
 
     render() {
+        //Loading
+
         if (this.state.items == null) {
             return (
                 <div className={styles.spinnerwrapper}>
@@ -148,5 +157,3 @@ class Lister extends Component {
 }
 
 export default Lister;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

@@ -1,14 +1,24 @@
+//Header for park view, contains name, state, latitude and longitude with map visualizations via the icon
+
 import React, { Component } from 'react';
 
 import styles from './parktitle.module.css';
-import Container from 'react-bootstrap/Container';
+
+//Bootstrap imports
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import SimpleMap from '../../maps/maps.js';
 import Modal from 'react-bootstrap/Modal';
-import map from '../../resources/map.svg';
 import Button from 'react-bootstrap/Button';
+
+//Component imports
+import SimpleMap from '../../maps/maps.js';
+
+//Icons
+import map from '../../resources/map.svg';
+
 import {Link} from 'react-router-dom';
+
+
 class ParkTitle extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +27,8 @@ class ParkTitle extends Component {
         }
     }
     render() {
+
+        //Modal logic
         let lgClose = () => this.setState({ lgShow: false });
         return (
 
@@ -63,8 +75,8 @@ class ParkTitle extends Component {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <SimpleMap lat={this.props.latlong.substring(this.props.latlong.search(":") + 1, this.props.latlong.search(","))}
-                            long={this.props.latlong.substring(this.props.latlong.search(",") + 7, this.props.latlong.length)} />
+                        {this.props.latlong != "" ? <SimpleMap lat={this.props.latlong.substring(this.props.latlong.search(":") + 1, this.props.latlong.search(","))}
+                            long={this.props.latlong.substring(this.props.latlong.search(",") + 7, this.props.latlong.length)} /> : "No coordinate data available"}
                     </Modal.Body>
                 </Modal>
                 <hr className={styles.divider}></hr>
@@ -76,5 +88,3 @@ class ParkTitle extends Component {
 }
 
 export default ParkTitle;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

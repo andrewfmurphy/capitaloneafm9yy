@@ -1,6 +1,11 @@
+//Component for individual alert listings
+
 import React, { Component } from 'react';
+
 import styles from './alert.module.css';
+
 import externallink from '../../resources/external-link.svg';
+
 class Alert extends Component {
     constructor(props) {
         super(props);
@@ -18,5 +23,3 @@ class Alert extends Component {
   }
 
 export default Alert;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION

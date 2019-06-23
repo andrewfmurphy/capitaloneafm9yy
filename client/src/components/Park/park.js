@@ -1,22 +1,31 @@
+//Main view for each park, responsible for rendering all other subviews eg
+//Articles, campgrounds, etc. Responsible for all api calls for each park,
+//calling every API and distributing to appropriate child components
+
 import React, { Component } from 'react';
+
 import styles from './park.module.css';
+
+//Component imports
 import ParkTitle from './main/parktitle.js';
 import Alerts from './alerts/alerts.js';
 import Campgrounds from './campgrounds/campgrounds.js';
 import VisitorCenters from './visitorcenters/visitorcenters.js';
 import Educational from './educational/educational.js';
 import Panel from './main/panel.js';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import ParkMain from './main/parkmain.js';
 import GeneralInfo from './generalinfo/generalinfo.js';
 import Media from './media/media.js';
 import Events from './events/events.js';
 import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import NewsReleases from './newsreleases/newsreleases.js';
 import Images from './images/images.js';
+
+//Bootstrap imports
 import Spinner from 'react-bootstrap/Spinner';
+
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
 
 const axios = require('axios');
 
@@ -26,8 +35,8 @@ class Park extends Component {
     alerts: null
   };
 
+  //API CALLS
   componentDidMount() {
-    // Call our fetch function below once the component mounts
     this.callParkInfo()
       .then(res => {
         console.log(res.data[0]); this.setState({ park: res.data[0] })
@@ -80,6 +89,8 @@ class Park extends Component {
       .catch(err => console.log(err));
 
   }
+
+  //API CALL LOGIC, CALLS NODE/EXPRESS BACKEND
 
   callParkInfo = () => {
     return axios.get("/api/parks", { params: { parkCode: this.props.match.params.code, api_key: process.env.API_KEY, fields: "images,entranceFees,entrancePasses,operatingHours,contacts,addresses,latLong" } })
@@ -254,6 +265,8 @@ class Park extends Component {
 
 
   render() {
+    //IF API CALLS ARE NOT COMPLETE, CONTINUE TO LOAD
+
     if (this.state.articles == null || this.state.newsreleases == null || this.state.park == null || this.state.campgrounds == null || this.state.events == null
       || this.state.visitorcenters == null || this.state.people == null || this.state.places == null || this.state.alerts == null || this.state.educational == null) {
       return (
@@ -319,5 +332,3 @@ class Park extends Component {
 }
 
 export default Park;
-
-//NAME, DESIGNATION, STATE LAT LONG DESCRIPTION
