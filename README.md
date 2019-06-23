@@ -20,7 +20,7 @@ The deliverables were described as follows:
 # Implementation
 ## Backend
 
-Although all of my data was coming from an external API, I decided to wrap my external API calls in an internal backend API. I used Node.JS and Express.JS for my backend server, and built a simple backend API which the front-end would use to make requests. Routing calls through a backend API as opposed to client-side calls is also good practice because it's much more secure and scales much better with the architecture of the application.
+Although all of my data was coming from an external API, I decided to wrap my external API calls in an internal backend API. I used Node.JS and Express.JS for my backend server and built a simple backend API which the front-end would use to make requests. Routing calls through a backend API as opposed to client-side calls is also good practice because it's much more secure and scales much better with the architecture of the application.
 
 ## Frontend
 
@@ -29,7 +29,7 @@ The main page contains a banner and the search feature, the entry point into our
 
 The results page contains all search results, with an additional option to search again.
 
-Within the parks page, there are seperate views for each of the various API endpoints (alerts, campgrounds, visitor centers, etc). Each endpoint from the API was broken down into a view component, and a component that would handle each individual listing.
+Within the parks page, there are separate views for each of the various API endpoints (alerts, campgrounds, visitor centers, etc). Each endpoint from the API was broken down into a view component, and a component that would handle each individual listing.
 
 # Obstacles
 By far the biggest obstacle in completing this challenge was the inconsistency of the API. While data for major parks (Yellowstone National Park, Grand Canyon National Park) was decent, the quality of data for smaller parks was extremely poor. A design challenge that I faced and attempted to address was *consistency*, presenting information with a consistent layout and format despite the shortcomings of the API. I soon realized it was essential to validate the data before attempting to render. Even the available data was often poorly formatted or *incorrect*.  
