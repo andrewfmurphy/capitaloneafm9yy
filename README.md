@@ -1,4 +1,6 @@
-﻿# Capital One Summit Challenge (Summer 2019)
+View completed project at https://capitaloneafm9yy.herokuapp.com
+
+# Capital One Summit Challenge (Summer 2019)
 
 This is my submission for the Capital One Summit coding challenge. Our task was to build a web application that would serve as a kiosk, allowing for users to find information about various parks.
 
